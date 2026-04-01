@@ -1,0 +1,8 @@
+# Phase 0 core stack (plan 0.3). Use Python 3.11–3.12 for best compatibility
+# (MediaPipe / PyTorch may not publish wheels for very new Python yet).
+opencv-python>=4.8.0
+numpy>=1.24.0
+matplotlib>=3.7.0
+jupyter>=1.0.0
+mediapipe>=0.10.0
+torch>=2.0.0
