@@ -71,3 +71,17 @@ The prediction contains visible keypoint confidence, RANSAC inliers, reprojectio
 - Measure keypoint error, homography reprojection error, player-position error in metres, and failure/abstention rate.
 - Reject predictions with fewer than four non-collinear high-confidence landmarks, poor RANSAC consensus, or high reprojection error.
 - Stabilize a valid calibration across a static clip; do not redetect the court independently on every frame.
+
+## Geometry quality gates and annotation evaluation
+
+The fitter conservatively rejects duplicate/near-duplicate image locations (within 0.1% of landmark span), nearly collinear points, less than 60% consensus (minimum four), numerically unstable normalized transforms, and full-court outlines crossing the projective horizon. It refits accepted inliers and reports residuals for every supplied landmark. These are engineering checks, not validated accuracy guarantees. Inference writes `status: abstained` with a reason and removes stale calibration/overlay files from its output directory when geometry fails.
+
+Compare predictions against labeled images separately from the model's internal fit residuals:
+
+```powershell
+.venv/Scripts/python.exe scripts/evaluate_court_keypoints.py --dataset data/court_dataset --annotation-glob 'bad_1*.json' --checkpoint data/models/court_keypoints_5080.pt --device cuda --output data/processed/court_prediction_5080/real_evaluation.json
+```
+
+The report includes per-landmark source-pixel error, mean error normalized by image diagonal, visible-point coverage, missed visible points, predictions on invisible points, fit diagnostics, and abstention rate. Missing predictions reduce coverage and are not treated as zero error. A successful evaluator exit means the report was produced, not that predictions passed accuracy checks.
+
+The RTX 5080 baseline abstains on all 12 real frames at confidence 0.55. Frame 0 still has 475.77 px average matched-landmark error. Eleven manual annotation fits pass; frame 144 abstains because extrapolating its fit to the full court crosses the projective horizon, despite a small visible-point residual. Revisit that fit before using it for complete court calibration. These real frames are in training, so this evaluation does not establish generalization.

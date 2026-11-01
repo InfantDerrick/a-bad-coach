@@ -1,0 +1,257 @@
+{
+  "schema_version": "1.0",
+  "items": [
+    {
+      "image": "bad_2-76b7952d8f-f001861.jpg",
+      "source_video": "bad_2-76b7952d8f",
+      "source_path": "data/raw/bad_2.mov",
+      "frame_index": 1861,
+      "timestamp_s": 31.074491,
+      "width": 2160,
+      "height": 3840
+    },
+    {
+      "image": "bad_2-76b7952d8f-f009306.jpg",
+      "source_video": "bad_2-76b7952d8f",
+      "source_path": "data/raw/bad_2.mov",
+      "frame_index": 9306,
+      "timestamp_s": 155.389151,
+      "width": 2160,
+      "height": 3840
+    },
+    {
+      "image": "bad_2-76b7952d8f-f016750.jpg",
+      "source_video": "bad_2-76b7952d8f",
+      "source_path": "data/raw/bad_2.mov",
+      "frame_index": 16750,
+      "timestamp_s": 279.687114,
+      "width": 2160,
+      "height": 3840
+    },
+    {
+      "image": "bad_2-76b7952d8f-f000000.jpg",
+      "source_video": "bad_2-76b7952d8f",
+      "source_path": "data/raw/bad_2.mov",
+      "frame_index": 0,
+      "timestamp_s": 0.0,
+      "width": 2160,
+      "height": 3840
+    },
+    {
+      "image": "bad_2-76b7952d8f-f000809.jpg",
+      "source_video": "bad_2-76b7952d8f",
+      "source_path": "data/raw/bad_2.mov",
+      "frame_index": 809,
+      "timestamp_s": 13.50847,
+      "width": 2160,
+      "height": 3840
+    },
+    {
+      "image": "bad_2-76b7952d8f-f001618.jpg",
+      "source_video": "bad_2-76b7952d8f",
+      "source_path": "data/raw/bad_2.mov",
+      "frame_index": 1618,
+      "timestamp_s": 27.01694,
+      "width": 2160,
+      "height": 3840
+    },
+    {
+      "image": "bad_2-76b7952d8f-f002428.jpg",
+      "source_video": "bad_2-76b7952d8f",
+      "source_path": "data/raw/bad_2.mov",
+      "frame_index": 2428,
+      "timestamp_s": 40.542108,
+      "width": 2160,
+      "height": 3840
+    },
+    {
+      "image": "bad_2-76b7952d8f-f003237.jpg",
+      "source_video": "bad_2-76b7952d8f",
+      "source_path": "data/raw/bad_2.mov",
+      "frame_index": 3237,
+      "timestamp_s": 54.050578,
+      "width": 2160,
+      "height": 3840
+    },
+    {
+      "image": "bad_2-76b7952d8f-f004046.jpg",
+      "source_video": "bad_2-76b7952d8f",
+      "source_path": "data/raw/bad_2.mov",
+      "frame_index": 4046,
+      "timestamp_s": 67.559049,
+      "width": 2160,
+      "height": 3840
+    },
+    {
+      "image": "bad_2-76b7952d8f-f004855.jpg",
+      "source_video": "bad_2-76b7952d8f",
+      "source_path": "data/raw/bad_2.mov",
+      "frame_index": 4855,
+      "timestamp_s": 81.067519,
+      "width": 2160,
+      "height": 3840
+    },
+    {
+      "image": "bad_2-76b7952d8f-f005665.jpg",
+      "source_video": "bad_2-76b7952d8f",
+      "source_path": "data/raw/bad_2.mov",
+      "frame_index": 5665,
+      "timestamp_s": 94.592687,
+      "width": 2160,
+      "height": 3840
+    },
+    {
+      "image": "bad_2-76b7952d8f-f006474.jpg",
+      "source_video": "bad_2-76b7952d8f",
+      "source_path": "data/raw/bad_2.mov",
+      "frame_index": 6474,
+      "timestamp_s": 108.101157,
+      "width": 2160,
+      "height": 3840
+    },
+    {
+      "image": "bad_2-76b7952d8f-f007283.jpg",
+      "source_video": "bad_2-76b7952d8f",
+      "source_path": "data/raw/bad_2.mov",
+      "frame_index": 7283,
+      "timestamp_s": 121.609627,
+      "width": 2160,
+      "height": 3840
+    },
+    {
+      "image": "bad_2-76b7952d8f-f008092.jpg",
+      "source_video": "bad_2-76b7952d8f",
+      "source_path": "data/raw/bad_2.mov",
+      "frame_index": 8092,
+      "timestamp_s": 135.118097,
+      "width": 2160,
+      "height": 3840
+    },
+    {
+      "image": "bad_2-76b7952d8f-f008901.jpg",
+      "source_video": "bad_2-76b7952d8f",
+      "source_path": "data/raw/bad_2.mov",
+      "frame_index": 8901,
+      "timestamp_s": 148.626567,
+      "width": 2160,
+      "height": 3840
+    },
+    {
+      "image": "bad_2-76b7952d8f-f009711.jpg",
+      "source_video": "bad_2-76b7952d8f",
+      "source_path": "data/raw/bad_2.mov",
+      "frame_index": 9711,
+      "timestamp_s": 162.151735,
+      "width": 2160,
+      "height": 3840
+    },
+    {
+      "image": "bad_2-76b7952d8f-f010520.jpg",
+      "source_video": "bad_2-76b7952d8f",
+      "source_path": "data/raw/bad_2.mov",
+      "frame_index": 10520,
+      "timestamp_s": 175.660205,
+      "width": 2160,
+      "height": 3840
+    },
+    {
+      "image": "bad_2-76b7952d8f-f011329.jpg",
+      "source_video": "bad_2-76b7952d8f",
+      "source_path": "data/raw/bad_2.mov",
+      "frame_index": 11329,
+      "timestamp_s": 189.168675,
+      "width": 2160,
+      "height": 3840
+    },
+    {
+      "image": "bad_2-76b7952d8f-f012138.jpg",
+      "source_video": "bad_2-76b7952d8f",
+      "source_path": "data/raw/bad_2.mov",
+      "frame_index": 12138,
+      "timestamp_s": 202.677146,
+      "width": 2160,
+      "height": 3840
+    },
+    {
+      "image": "bad_2-76b7952d8f-f012947.jpg",
+      "source_video": "bad_2-76b7952d8f",
+      "source_path": "data/raw/bad_2.mov",
+      "frame_index": 12947,
+      "timestamp_s": 216.185616,
+      "width": 2160,
+      "height": 3840
+    },
+    {
+      "image": "bad_2-76b7952d8f-f013757.jpg",
+      "source_video": "bad_2-76b7952d8f",
+      "source_path": "data/raw/bad_2.mov",
+      "frame_index": 13757,
+      "timestamp_s": 229.710784,
+      "width": 2160,
+      "height": 3840
+    },
+    {
+      "image": "bad_2-76b7952d8f-f014566.jpg",
+      "source_video": "bad_2-76b7952d8f",
+      "source_path": "data/raw/bad_2.mov",
+      "frame_index": 14566,
+      "timestamp_s": 243.219254,
+      "width": 2160,
+      "height": 3840
+    },
+    {
+      "image": "bad_2-76b7952d8f-f015375.jpg",
+      "source_video": "bad_2-76b7952d8f",
+      "source_path": "data/raw/bad_2.mov",
+      "frame_index": 15375,
+      "timestamp_s": 256.727724,
+      "width": 2160,
+      "height": 3840
+    },
+    {
+      "image": "bad_2-76b7952d8f-f016184.jpg",
+      "source_video": "bad_2-76b7952d8f",
+      "source_path": "data/raw/bad_2.mov",
+      "frame_index": 16184,
+      "timestamp_s": 270.236194,
+      "width": 2160,
+      "height": 3840
+    },
+    {
+      "image": "bad_2-76b7952d8f-f016994.jpg",
+      "source_video": "bad_2-76b7952d8f",
+      "source_path": "data/raw/bad_2.mov",
+      "frame_index": 16994,
+      "timestamp_s": 283.761362,
+      "width": 2160,
+      "height": 3840
+    },
+    {
+      "image": "bad_2-76b7952d8f-f017803.jpg",
+      "source_video": "bad_2-76b7952d8f",
+      "source_path": "data/raw/bad_2.mov",
+      "frame_index": 17803,
+      "timestamp_s": 297.269832,
+      "width": 2160,
+      "height": 3840
+    },
+    {
+      "image": "bad_2-76b7952d8f-f018612.jpg",
+      "source_video": "bad_2-76b7952d8f",
+      "source_path": "data/raw/bad_2.mov",
+      "frame_index": 18612,
+      "timestamp_s": 310.778302,
+      "width": 2160,
+      "height": 3840
+    }
+  ],
+  "purpose": "held_out_source_evaluation_only",
+  "priority_frame_indices": [
+    1861,
+    9306,
+    16750
+  ],
+  "notes": [
+    "Do not add this source to training. Resolve all 16 landmarks as visible or explicitly not visible."
+  ]
+}

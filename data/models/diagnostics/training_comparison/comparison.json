@@ -1,0 +1,2601 @@
+{
+  "scope": "All real evaluation frames are training examples from ONE video; this is not generalization evidence.",
+  "seed": 7,
+  "steps_per_arm": 1000,
+  "batch_size": 16,
+  "augmentation": false,
+  "real_frames": 12,
+  "synthetic_training_frames": 90,
+  "training_sources": [
+    "bad_1-3507bbab2c",
+    "synthetic-scene-0000",
+    "synthetic-scene-0001",
+    "synthetic-scene-0002",
+    "synthetic-scene-0003",
+    "synthetic-scene-0004",
+    "synthetic-scene-0005",
+    "synthetic-scene-0007",
+    "synthetic-scene-0008",
+    "synthetic-scene-0009",
+    "synthetic-scene-0011",
+    "synthetic-scene-0012",
+    "synthetic-scene-0014",
+    "synthetic-scene-0016",
+    "synthetic-scene-0017",
+    "synthetic-scene-0019"
+  ],
+  "synthetic_validation_sources": [
+    "synthetic-scene-0006",
+    "synthetic-scene-0010",
+    "synthetic-scene-0013",
+    "synthetic-scene-0015",
+    "synthetic-scene-0018"
+  ],
+  "arms": {
+    "real_only": {
+      "real_examples_sampled": 16000,
+      "history": [
+        {
+          "step": 0,
+          "raw_mae_input_px": 186.02093931686048,
+          "visible_coverage": 0.0,
+          "abstention_rate": 1.0
+        },
+        {
+          "step": 200,
+          "raw_mae_input_px": 7.0887366006540695,
+          "visible_coverage": 0.5581395348837209,
+          "abstention_rate": 0.5
+        },
+        {
+          "step": 400,
+          "raw_mae_input_px": 1.7225270825763082,
+          "visible_coverage": 1.0,
+          "abstention_rate": 0.6666666666666666
+        },
+        {
+          "step": 600,
+          "raw_mae_input_px": 1.5932212652162063,
+          "visible_coverage": 1.0,
+          "abstention_rate": 0.6666666666666666
+        },
+        {
+          "step": 800,
+          "raw_mae_input_px": 1.5784621127816134,
+          "visible_coverage": 1.0,
+          "abstention_rate": 0.6666666666666666
+        },
+        {
+          "step": 1000,
+          "raw_mae_input_px": 1.5777197549509447,
+          "visible_coverage": 1.0,
+          "abstention_rate": 0.6666666666666666
+        }
+      ],
+      "real_training_evaluation": {
+        "raw_mae_input_px": 1.5777197549509447,
+        "visible_coverage": 1.0,
+        "confident_mae_source_px": 11.832900860547571,
+        "abstention_rate": 0.6666666666666666,
+        "predicted_on_invisible_count": 0,
+        "frames": [
+          {
+            "annotation": "bad_1-3507bbab2c-f000000.json",
+            "points": {
+              "far_baseline_left": null,
+              "far_baseline_right": [
+                900.0,
+                1830.0
+              ],
+              "far_long_service_left": null,
+              "far_long_service_right": [
+                930.0,
+                1830.0
+              ],
+              "far_short_service_left": null,
+              "far_short_service_center": [
+                420.0,
+                1890.0
+              ],
+              "far_short_service_right": [
+                1230.0,
+                1890.0
+              ],
+              "net_left": null,
+              "net_right": [
+                1470.0,
+                1920.0
+              ],
+              "near_short_service_left": null,
+              "near_short_service_center": [
+                630.0,
+                2010.0
+              ],
+              "near_short_service_right": [
+                1800.0,
+                1980.0
+              ],
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 7,
+            "matched_visible": 7,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [],
+            "mae_source_px": 10.071892916212194,
+            "normalized_mae_diagonal": 0.0022860456974761944,
+            "per_landmark_error_px": {
+              "far_baseline_right": 10.83820738998138,
+              "far_long_service_right": 17.779697077849853,
+              "far_short_service_center": 9.405711826224957,
+              "far_short_service_right": 9.155960618004427,
+              "net_right": 15.14879641165929,
+              "near_short_service_center": 4.106195476198587,
+              "near_short_service_right": 4.068681613566873
+            },
+            "fit": {
+              "visible_landmarks": 7,
+              "inlier_landmarks": 7,
+              "inlier_names": [
+                "far_baseline_right",
+                "far_long_service_right",
+                "far_short_service_center",
+                "far_short_service_right",
+                "net_right",
+                "near_short_service_center",
+                "near_short_service_right"
+              ],
+              "per_landmark_residual_px": {
+                "far_baseline_right": 5.29971170425415,
+                "far_long_service_right": 7.8551812171936035,
+                "far_short_service_center": 4.14713191986084,
+                "far_short_service_right": 6.394737720489502,
+                "net_right": 7.5161051750183105,
+                "near_short_service_center": 2.724186420440674,
+                "near_short_service_right": 2.7647175788879395
+              },
+              "reprojection_rmse_px": 5.598965167999268,
+              "max_reprojection_error_px": 7.8551812171936035
+            },
+            "status": "model_prediction_unverified"
+          },
+          {
+            "annotation": "bad_1-3507bbab2c-f000072.json",
+            "points": {
+              "far_baseline_left": null,
+              "far_baseline_right": [
+                930.0,
+                1830.0
+              ],
+              "far_long_service_left": null,
+              "far_long_service_right": [
+                960.0,
+                1830.0
+              ],
+              "far_short_service_left": null,
+              "far_short_service_center": [
+                420.0,
+                1890.0
+              ],
+              "far_short_service_right": null,
+              "net_left": null,
+              "net_right": [
+                1470.0,
+                1920.0
+              ],
+              "near_short_service_left": null,
+              "near_short_service_center": [
+                630.0,
+                2010.0
+              ],
+              "near_short_service_right": [
+                1800.0,
+                1980.0
+              ],
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 6,
+            "matched_visible": 6,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [],
+            "mae_source_px": 11.015504028536357,
+            "normalized_mae_diagonal": 0.002500219750096149,
+            "per_landmark_error_px": {
+              "far_baseline_right": 13.642514738880264,
+              "far_long_service_right": 10.611621670207734,
+              "far_short_service_center": 6.407787101833366,
+              "net_right": 15.51184977654929,
+              "near_short_service_center": 4.501317146516341,
+              "near_short_service_right": 15.417933737231154
+            },
+            "fit": {
+              "visible_landmarks": 6,
+              "inlier_landmarks": 6,
+              "inlier_names": [
+                "far_baseline_right",
+                "far_long_service_right",
+                "far_short_service_center",
+                "net_right",
+                "near_short_service_center",
+                "near_short_service_right"
+              ],
+              "per_landmark_residual_px": {
+                "far_baseline_right": 6.1562700271606445,
+                "far_long_service_right": 5.724681377410889,
+                "far_short_service_center": 2.5378901958465576,
+                "net_right": 2.284978151321411,
+                "near_short_service_center": 1.5913057327270508,
+                "near_short_service_right": 2.091240406036377
+              },
+              "reprojection_rmse_px": 3.8565785884857178,
+              "max_reprojection_error_px": 6.1562700271606445
+            },
+            "status": "model_prediction_unverified"
+          },
+          {
+            "annotation": "bad_1-3507bbab2c-f000144.json",
+            "points": {
+              "far_baseline_left": null,
+              "far_baseline_right": [
+                780.0,
+                1830.0
+              ],
+              "far_long_service_left": null,
+              "far_long_service_right": [
+                810.0,
+                1860.0
+              ],
+              "far_short_service_left": null,
+              "far_short_service_center": [
+                270.0,
+                1890.0
+              ],
+              "far_short_service_right": [
+                1110.0,
+                1890.0
+              ],
+              "net_left": null,
+              "net_right": [
+                1320.0,
+                1950.0
+              ],
+              "near_short_service_left": null,
+              "near_short_service_center": [
+                510.0,
+                2010.0
+              ],
+              "near_short_service_right": [
+                1650.0,
+                2010.0
+              ],
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 7,
+            "matched_visible": 7,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [],
+            "mae_source_px": 12.625679493903604,
+            "normalized_mae_diagonal": 0.0028656857777243335,
+            "per_landmark_error_px": {
+              "far_baseline_right": 12.299307781920438,
+              "far_long_service_right": 17.562455387592237,
+              "far_short_service_center": 11.90076157649005,
+              "far_short_service_right": 12.331205176333745,
+              "net_right": 8.325573056341453,
+              "near_short_service_center": 14.242334620871931,
+              "near_short_service_right": 11.718118857775364
+            },
+            "status": "abstained",
+            "reason": "Projected court crosses the homography horizon"
+          },
+          {
+            "annotation": "bad_1-3507bbab2c-f000216.json",
+            "points": {
+              "far_baseline_left": null,
+              "far_baseline_right": [
+                840.0,
+                1800.0
+              ],
+              "far_long_service_left": null,
+              "far_long_service_right": [
+                870.0,
+                1800.0
+              ],
+              "far_short_service_left": null,
+              "far_short_service_center": [
+                330.0,
+                1860.0
+              ],
+              "far_short_service_right": [
+                1170.0,
+                1860.0
+              ],
+              "net_left": null,
+              "net_right": [
+                1380.0,
+                1920.0
+              ],
+              "near_short_service_left": null,
+              "near_short_service_center": [
+                540.0,
+                1980.0
+              ],
+              "near_short_service_right": null,
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 6,
+            "matched_visible": 6,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [],
+            "mae_source_px": 7.898026162226063,
+            "normalized_mae_diagonal": 0.0017926370819182091,
+            "per_landmark_error_px": {
+              "far_baseline_right": 6.594560933931741,
+              "far_long_service_right": 1.3972733200955265,
+              "far_short_service_center": 10.641718498034917,
+              "far_short_service_right": 14.053606384046038,
+              "net_right": 9.197884799175599,
+              "near_short_service_center": 5.503113038072558
+            },
+            "fit": {
+              "visible_landmarks": 6,
+              "inlier_landmarks": 4,
+              "inlier_names": [
+                "far_short_service_center",
+                "far_short_service_right",
+                "net_right",
+                "near_short_service_center"
+              ],
+              "per_landmark_residual_px": {
+                "far_baseline_right": 46.00792694091797,
+                "far_long_service_right": 27.812808990478516,
+                "far_short_service_center": 0.0,
+                "far_short_service_right": 0.0,
+                "net_right": 0.0,
+                "near_short_service_center": 0.0
+              },
+              "reprojection_rmse_px": 0.0,
+              "max_reprojection_error_px": 0.0
+            },
+            "status": "model_prediction_unverified"
+          },
+          {
+            "annotation": "bad_1-3507bbab2c-f000288.json",
+            "points": {
+              "far_baseline_left": [
+                630.0,
+                1590.0
+              ],
+              "far_baseline_right": [
+                1860.0,
+                1620.0
+              ],
+              "far_long_service_left": [
+                630.0,
+                1590.0
+              ],
+              "far_long_service_right": [
+                1890.0,
+                1620.0
+              ],
+              "far_short_service_left": [
+                480.0,
+                1650.0
+              ],
+              "far_short_service_center": [
+                1350.0,
+                1680.0
+              ],
+              "far_short_service_right": null,
+              "net_left": [
+                390.0,
+                1710.0
+              ],
+              "net_right": null,
+              "near_short_service_left": [
+                210.0,
+                1770.0
+              ],
+              "near_short_service_center": [
+                1560.0,
+                1800.0
+              ],
+              "near_short_service_right": null,
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 9,
+            "matched_visible": 9,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [],
+            "mae_source_px": 12.227035250986638,
+            "normalized_mae_diagonal": 0.002775204379249864,
+            "per_landmark_error_px": {
+              "far_baseline_left": 17.673681553512914,
+              "far_baseline_right": 9.878127171897514,
+              "far_long_service_left": 5.607623614841237,
+              "far_long_service_right": 11.35541106563652,
+              "far_short_service_left": 11.88802656230982,
+              "far_short_service_center": 11.318941545330832,
+              "net_left": 13.074665458645626,
+              "near_short_service_left": 15.80144259375616,
+              "near_short_service_center": 13.445397692949117
+            },
+            "status": "abstained",
+            "reason": "Distinct landmarks have duplicate or collapsed image locations"
+          },
+          {
+            "annotation": "bad_1-3507bbab2c-f000360.json",
+            "points": {
+              "far_baseline_left": [
+                540.0,
+                1620.0
+              ],
+              "far_baseline_right": [
+                1740.0,
+                1650.0
+              ],
+              "far_long_service_left": [
+                540.0,
+                1620.0
+              ],
+              "far_long_service_right": [
+                1770.0,
+                1650.0
+              ],
+              "far_short_service_left": [
+                390.0,
+                1680.0
+              ],
+              "far_short_service_center": null,
+              "far_short_service_right": [
+                2100.0,
+                1710.0
+              ],
+              "net_left": [
+                270.0,
+                1710.0
+              ],
+              "net_right": null,
+              "near_short_service_left": [
+                90.0,
+                1770.0
+              ],
+              "near_short_service_center": [
+                1470.0,
+                1830.0
+              ],
+              "near_short_service_right": null,
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 9,
+            "matched_visible": 9,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [],
+            "mae_source_px": 13.098440193636272,
+            "normalized_mae_diagonal": 0.0029729895956412287,
+            "per_landmark_error_px": {
+              "far_baseline_left": 13.15259147872139,
+              "far_baseline_right": 13.910971271468659,
+              "far_long_service_left": 11.36349539326191,
+              "far_long_service_right": 18.304927543558723,
+              "far_short_service_left": 10.168481229343985,
+              "far_short_service_right": 7.7635749748692895,
+              "net_left": 16.000594229624685,
+              "near_short_service_left": 13.438248539544306,
+              "near_short_service_center": 13.783077082333497
+            },
+            "status": "abstained",
+            "reason": "Distinct landmarks have duplicate or collapsed image locations"
+          },
+          {
+            "annotation": "bad_1-3507bbab2c-f000432.json",
+            "points": {
+              "far_baseline_left": [
+                270.0,
+                1620.0
+              ],
+              "far_baseline_right": [
+                1500.0,
+                1680.0
+              ],
+              "far_long_service_left": [
+                270.0,
+                1620.0
+              ],
+              "far_long_service_right": [
+                1530.0,
+                1680.0
+              ],
+              "far_short_service_left": [
+                120.0,
+                1680.0
+              ],
+              "far_short_service_center": [
+                990.0,
+                1710.0
+              ],
+              "far_short_service_right": [
+                1830.0,
+                1770.0
+              ],
+              "net_left": [
+                0.0,
+                1740.0
+              ],
+              "net_right": [
+                2070.0,
+                1800.0
+              ],
+              "near_short_service_left": null,
+              "near_short_service_center": [
+                1200.0,
+                1860.0
+              ],
+              "near_short_service_right": null,
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 10,
+            "matched_visible": 10,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [],
+            "mae_source_px": 12.731351513194252,
+            "normalized_mae_diagonal": 0.002889670451415032,
+            "per_landmark_error_px": {
+              "far_baseline_left": 2.0937894670345187,
+              "far_baseline_right": 6.328471056515519,
+              "far_long_service_left": 17.82817469702083,
+              "far_long_service_right": 15.319476269820642,
+              "far_short_service_left": 9.897123562653821,
+              "far_short_service_center": 16.201304445260757,
+              "far_short_service_right": 16.485086558789103,
+              "net_left": 15.663946073151083,
+              "net_right": 16.340680136215344,
+              "near_short_service_center": 11.155462865480912
+            },
+            "status": "abstained",
+            "reason": "Distinct landmarks have duplicate or collapsed image locations"
+          },
+          {
+            "annotation": "bad_1-3507bbab2c-f000504.json",
+            "points": {
+              "far_baseline_left": null,
+              "far_baseline_right": [
+                930.0,
+                1710.0
+              ],
+              "far_long_service_left": null,
+              "far_long_service_right": [
+                960.0,
+                1710.0
+              ],
+              "far_short_service_left": null,
+              "far_short_service_center": [
+                420.0,
+                1740.0
+              ],
+              "far_short_service_right": [
+                1260.0,
+                1770.0
+              ],
+              "net_left": null,
+              "net_right": [
+                1470.0,
+                1830.0
+              ],
+              "near_short_service_left": null,
+              "near_short_service_center": [
+                630.0,
+                1860.0
+              ],
+              "near_short_service_right": [
+                1800.0,
+                1920.0
+              ],
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 7,
+            "matched_visible": 7,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [],
+            "mae_source_px": 14.53033071482646,
+            "normalized_mae_diagonal": 0.003297989790982346,
+            "per_landmark_error_px": {
+              "far_baseline_right": 13.805239984223642,
+              "far_long_service_right": 10.37442276246505,
+              "far_short_service_center": 15.637856961168064,
+              "far_short_service_right": 17.46615950394796,
+              "net_right": 15.878307621941422,
+              "near_short_service_center": 14.06229021016296,
+              "near_short_service_right": 14.488037959876145
+            },
+            "status": "abstained",
+            "reason": "Insufficient geometric consensus among visible landmarks"
+          },
+          {
+            "annotation": "bad_1-3507bbab2c-f000576.json",
+            "points": {
+              "far_baseline_left": null,
+              "far_baseline_right": null,
+              "far_long_service_left": null,
+              "far_long_service_right": null,
+              "far_short_service_left": null,
+              "far_short_service_center": [
+                420.0,
+                1680.0
+              ],
+              "far_short_service_right": [
+                1230.0,
+                1740.0
+              ],
+              "net_left": null,
+              "net_right": [
+                1470.0,
+                1770.0
+              ],
+              "near_short_service_left": null,
+              "near_short_service_center": [
+                630.0,
+                1830.0
+              ],
+              "near_short_service_right": [
+                1800.0,
+                1860.0
+              ],
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 5,
+            "matched_visible": 5,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [],
+            "mae_source_px": 10.344510910550486,
+            "normalized_mae_diagonal": 0.002347922565925469,
+            "per_landmark_error_px": {
+              "far_short_service_center": 10.72110133838695,
+              "far_short_service_right": 16.22578653498572,
+              "net_right": 12.199670002228665,
+              "near_short_service_center": 2.706022399273541,
+              "near_short_service_right": 9.869974277877551
+            },
+            "status": "abstained",
+            "reason": "Projected court crosses the homography horizon"
+          },
+          {
+            "annotation": "bad_1-3507bbab2c-f000648.json",
+            "points": {
+              "far_baseline_left": [
+                120.0,
+                1560.0
+              ],
+              "far_baseline_right": [
+                1380.0,
+                1620.0
+              ],
+              "far_long_service_left": [
+                120.0,
+                1560.0
+              ],
+              "far_long_service_right": [
+                1410.0,
+                1620.0
+              ],
+              "far_short_service_left": null,
+              "far_short_service_center": [
+                870.0,
+                1650.0
+              ],
+              "far_short_service_right": null,
+              "net_left": null,
+              "net_right": [
+                1920.0,
+                1740.0
+              ],
+              "near_short_service_left": null,
+              "near_short_service_center": [
+                1080.0,
+                1770.0
+              ],
+              "near_short_service_right": null,
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 7,
+            "matched_visible": 7,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [],
+            "mae_source_px": 12.10259803023509,
+            "normalized_mae_diagonal": 0.0027469605153137137,
+            "per_landmark_error_px": {
+              "far_baseline_left": 14.041177039908922,
+              "far_baseline_right": 22.530312264409574,
+              "far_long_service_left": 6.222120303909724,
+              "far_long_service_right": 10.755941710156998,
+              "far_short_service_center": 2.706422437722222,
+              "net_right": 12.208518707131645,
+              "near_short_service_center": 16.253693748406548
+            },
+            "status": "abstained",
+            "reason": "Distinct landmarks have duplicate or collapsed image locations"
+          },
+          {
+            "annotation": "bad_1-3507bbab2c-f000720.json",
+            "points": {
+              "far_baseline_left": [
+                120.0,
+                1560.0
+              ],
+              "far_baseline_right": null,
+              "far_long_service_left": [
+                120.0,
+                1560.0
+              ],
+              "far_long_service_right": null,
+              "far_short_service_left": null,
+              "far_short_service_center": [
+                870.0,
+                1650.0
+              ],
+              "far_short_service_right": [
+                1680.0,
+                1680.0
+              ],
+              "net_left": null,
+              "net_right": [
+                1920.0,
+                1740.0
+              ],
+              "near_short_service_left": null,
+              "near_short_service_center": [
+                1050.0,
+                1800.0
+              ],
+              "near_short_service_right": null,
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 6,
+            "matched_visible": 6,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [],
+            "mae_source_px": 11.002825960102987,
+            "normalized_mae_diagonal": 0.0024973421734543477,
+            "per_landmark_error_px": {
+              "far_baseline_left": 3.220044254092559,
+              "far_long_service_left": 17.742830917860392,
+              "far_short_service_center": 12.15169135826,
+              "far_short_service_right": 11.05668395807447,
+              "net_right": 12.080521210279695,
+              "near_short_service_center": 9.765184062050796
+            },
+            "status": "abstained",
+            "reason": "Distinct landmarks have duplicate or collapsed image locations"
+          },
+          {
+            "annotation": "bad_1-3507bbab2c-f000792.json",
+            "points": {
+              "far_baseline_left": null,
+              "far_baseline_right": [
+                1020.0,
+                1650.0
+              ],
+              "far_long_service_left": null,
+              "far_long_service_right": [
+                1050.0,
+                1650.0
+              ],
+              "far_short_service_left": null,
+              "far_short_service_center": [
+                540.0,
+                1680.0
+              ],
+              "far_short_service_right": [
+                1350.0,
+                1740.0
+              ],
+              "net_left": null,
+              "net_right": [
+                1590.0,
+                1800.0
+              ],
+              "near_short_service_left": null,
+              "near_short_service_center": [
+                750.0,
+                1830.0
+              ],
+              "near_short_service_right": [
+                1920.0,
+                1860.0
+              ],
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 7,
+            "matched_visible": 7,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [],
+            "mae_source_px": 12.264640047050884,
+            "normalized_mae_diagonal": 0.0027837396449603207,
+            "per_landmark_error_px": {
+              "far_baseline_right": 11.759235984670218,
+              "far_long_service_right": 14.988211867399201,
+              "far_short_service_center": 7.716154230112522,
+              "far_short_service_right": 15.593403592686618,
+              "net_right": 10.886622357754623,
+              "near_short_service_center": 13.584548173204688,
+              "near_short_service_right": 11.324304123528309
+            },
+            "fit": {
+              "visible_landmarks": 7,
+              "inlier_landmarks": 5,
+              "inlier_names": [
+                "far_baseline_right",
+                "far_short_service_center",
+                "far_short_service_right",
+                "net_right",
+                "near_short_service_center"
+              ],
+              "per_landmark_residual_px": {
+                "far_baseline_right": 1.5870417356491089,
+                "far_long_service_right": 14.586227416992188,
+                "far_short_service_center": 0.6528056859970093,
+                "far_short_service_right": 2.3683695793151855,
+                "net_right": 1.0344200134277344,
+                "near_short_service_center": 0.4019670784473419,
+                "near_short_service_right": 46.793617248535156
+              },
+              "reprojection_rmse_px": 1.3989734649658203,
+              "max_reprojection_error_px": 2.3683695793151855
+            },
+            "status": "model_prediction_unverified"
+          }
+        ]
+      },
+      "held_out_synthetic_raw_mae_input_px": 259.37227590460526
+    },
+    "natural_mix": {
+      "real_examples_sampled": 1864,
+      "history": [
+        {
+          "step": 0,
+          "raw_mae_input_px": 186.02093931686048,
+          "visible_coverage": 0.0,
+          "abstention_rate": 1.0
+        },
+        {
+          "step": 200,
+          "raw_mae_input_px": 82.42775708575581,
+          "visible_coverage": 0.0,
+          "abstention_rate": 1.0
+        },
+        {
+          "step": 400,
+          "raw_mae_input_px": 21.240762400072676,
+          "visible_coverage": 0.627906976744186,
+          "abstention_rate": 1.0
+        },
+        {
+          "step": 600,
+          "raw_mae_input_px": 9.481448151344477,
+          "visible_coverage": 0.9651162790697675,
+          "abstention_rate": 1.0
+        },
+        {
+          "step": 800,
+          "raw_mae_input_px": 3.7487647477970567,
+          "visible_coverage": 1.0,
+          "abstention_rate": 0.9166666666666666
+        },
+        {
+          "step": 1000,
+          "raw_mae_input_px": 2.613876165345658,
+          "visible_coverage": 1.0,
+          "abstention_rate": 0.9166666666666666
+        }
+      ],
+      "real_training_evaluation": {
+        "raw_mae_input_px": 2.613876165345658,
+        "visible_coverage": 1.0,
+        "confident_mae_source_px": 19.604074211599197,
+        "abstention_rate": 0.9166666666666666,
+        "predicted_on_invisible_count": 9,
+        "frames": [
+          {
+            "annotation": "bad_1-3507bbab2c-f000000.json",
+            "points": {
+              "far_baseline_left": null,
+              "far_baseline_right": [
+                900.0,
+                1830.0
+              ],
+              "far_long_service_left": null,
+              "far_long_service_right": [
+                960.0,
+                1860.0
+              ],
+              "far_short_service_left": null,
+              "far_short_service_center": [
+                420.0,
+                1890.0
+              ],
+              "far_short_service_right": [
+                1230.0,
+                1890.0
+              ],
+              "net_left": null,
+              "net_right": [
+                1230.0,
+                1860.0
+              ],
+              "near_short_service_left": null,
+              "near_short_service_center": [
+                630.0,
+                2010.0
+              ],
+              "near_short_service_right": [
+                1800.0,
+                1980.0
+              ],
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 7,
+            "matched_visible": 7,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [],
+            "mae_source_px": 43.074664438839235,
+            "normalized_mae_diagonal": 0.009776777029880477,
+            "per_landmark_error_px": {
+              "far_baseline_right": 10.83820738998138,
+              "far_long_service_right": 27.917814394123585,
+              "far_short_service_center": 9.405711826224957,
+              "far_short_service_right": 9.155960618004427,
+              "net_right": 236.03007975377483,
+              "near_short_service_center": 4.106195476198587,
+              "near_short_service_right": 4.068681613566873
+            },
+            "fit": {
+              "visible_landmarks": 7,
+              "inlier_landmarks": 5,
+              "inlier_names": [
+                "far_baseline_right",
+                "far_short_service_center",
+                "far_short_service_right",
+                "near_short_service_center",
+                "near_short_service_right"
+              ],
+              "per_landmark_residual_px": {
+                "far_baseline_right": 1.7420539855957031,
+                "far_long_service_right": 29.152931213378906,
+                "far_short_service_center": 1.3431034088134766,
+                "far_short_service_right": 3.7189440727233887,
+                "net_right": 237.565673828125,
+                "near_short_service_center": 0.8442944884300232,
+                "near_short_service_right": 1.7390053272247314
+              },
+              "reprojection_rmse_px": 2.116893768310547,
+              "max_reprojection_error_px": 3.7189440727233887
+            },
+            "status": "model_prediction_unverified"
+          },
+          {
+            "annotation": "bad_1-3507bbab2c-f000072.json",
+            "points": {
+              "far_baseline_left": null,
+              "far_baseline_right": [
+                900.0,
+                1830.0
+              ],
+              "far_long_service_left": null,
+              "far_long_service_right": [
+                960.0,
+                1860.0
+              ],
+              "far_short_service_left": null,
+              "far_short_service_center": [
+                420.0,
+                1890.0
+              ],
+              "far_short_service_right": [
+                1440.0,
+                1950.0
+              ],
+              "net_left": null,
+              "net_right": [
+                1470.0,
+                1950.0
+              ],
+              "near_short_service_left": null,
+              "near_short_service_center": [
+                630.0,
+                2010.0
+              ],
+              "near_short_service_right": [
+                1800.0,
+                1980.0
+              ],
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 6,
+            "matched_visible": 6,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [
+              "far_short_service_right"
+            ],
+            "mae_source_px": 13.568090039375043,
+            "normalized_mae_diagonal": 0.003079587334328789,
+            "per_landmark_error_px": {
+              "far_baseline_right": 16.713312804956246,
+              "far_long_service_right": 21.575868392355883,
+              "far_short_service_center": 6.407787101833366,
+              "net_right": 16.792321053357274,
+              "near_short_service_center": 4.501317146516341,
+              "near_short_service_right": 15.417933737231154
+            },
+            "status": "abstained",
+            "reason": "Insufficient geometric consensus among visible landmarks"
+          },
+          {
+            "annotation": "bad_1-3507bbab2c-f000144.json",
+            "points": {
+              "far_baseline_left": null,
+              "far_baseline_right": [
+                780.0,
+                1830.0
+              ],
+              "far_long_service_left": null,
+              "far_long_service_right": [
+                810.0,
+                1860.0
+              ],
+              "far_short_service_left": null,
+              "far_short_service_center": [
+                270.0,
+                1890.0
+              ],
+              "far_short_service_right": [
+                1080.0,
+                1890.0
+              ],
+              "net_left": null,
+              "net_right": [
+                1320.0,
+                1950.0
+              ],
+              "near_short_service_left": null,
+              "near_short_service_center": [
+                510.0,
+                2010.0
+              ],
+              "near_short_service_right": [
+                1650.0,
+                2010.0
+              ],
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 7,
+            "matched_visible": 7,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [],
+            "mae_source_px": 14.428657006922553,
+            "normalized_mae_diagonal": 0.003274912625206879,
+            "per_landmark_error_px": {
+              "far_baseline_right": 12.299307781920438,
+              "far_long_service_right": 17.562455387592237,
+              "far_short_service_center": 11.90076157649005,
+              "far_short_service_right": 24.9520477674664,
+              "net_right": 8.325573056341453,
+              "near_short_service_center": 14.242334620871931,
+              "near_short_service_right": 11.718118857775364
+            },
+            "status": "abstained",
+            "reason": "Projected court crosses the homography horizon"
+          },
+          {
+            "annotation": "bad_1-3507bbab2c-f000216.json",
+            "points": {
+              "far_baseline_left": null,
+              "far_baseline_right": [
+                840.0,
+                1800.0
+              ],
+              "far_long_service_left": null,
+              "far_long_service_right": [
+                870.0,
+                1800.0
+              ],
+              "far_short_service_left": null,
+              "far_short_service_center": [
+                330.0,
+                1860.0
+              ],
+              "far_short_service_right": [
+                1170.0,
+                1860.0
+              ],
+              "net_left": null,
+              "net_right": [
+                1380.0,
+                1890.0
+              ],
+              "near_short_service_left": null,
+              "near_short_service_center": [
+                540.0,
+                1980.0
+              ],
+              "near_short_service_right": [
+                1140.0,
+                1860.0
+              ],
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 6,
+            "matched_visible": 6,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [
+              "near_short_service_right"
+            ],
+            "mae_source_px": 9.98775627647334,
+            "normalized_mae_diagonal": 0.002266948969098005,
+            "per_landmark_error_px": {
+              "far_baseline_right": 6.594560933931741,
+              "far_long_service_right": 1.3972733200955265,
+              "far_short_service_center": 10.641718498034917,
+              "far_short_service_right": 14.053606384046038,
+              "net_right": 21.73626548465926,
+              "near_short_service_center": 5.503113038072558
+            },
+            "status": "abstained",
+            "reason": "Insufficient geometric consensus among visible landmarks"
+          },
+          {
+            "annotation": "bad_1-3507bbab2c-f000288.json",
+            "points": {
+              "far_baseline_left": [
+                630.0,
+                1590.0
+              ],
+              "far_baseline_right": [
+                1860.0,
+                1620.0
+              ],
+              "far_long_service_left": [
+                630.0,
+                1590.0
+              ],
+              "far_long_service_right": [
+                1890.0,
+                1620.0
+              ],
+              "far_short_service_left": [
+                480.0,
+                1650.0
+              ],
+              "far_short_service_center": [
+                1350.0,
+                1680.0
+              ],
+              "far_short_service_right": null,
+              "net_left": [
+                390.0,
+                1680.0
+              ],
+              "net_right": null,
+              "near_short_service_left": [
+                210.0,
+                1770.0
+              ],
+              "near_short_service_center": [
+                1560.0,
+                1800.0
+              ],
+              "near_short_service_right": null,
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 9,
+            "matched_visible": 9,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [],
+            "mae_source_px": 12.896911552265777,
+            "normalized_mae_diagonal": 0.0029272480764098567,
+            "per_landmark_error_px": {
+              "far_baseline_left": 17.673681553512914,
+              "far_baseline_right": 9.878127171897514,
+              "far_long_service_left": 5.607623614841237,
+              "far_long_service_right": 11.35541106563652,
+              "far_short_service_left": 11.88802656230982,
+              "far_short_service_center": 11.318941545330832,
+              "net_left": 19.103552170157883,
+              "near_short_service_left": 15.80144259375616,
+              "near_short_service_center": 13.445397692949117
+            },
+            "status": "abstained",
+            "reason": "Distinct landmarks have duplicate or collapsed image locations"
+          },
+          {
+            "annotation": "bad_1-3507bbab2c-f000360.json",
+            "points": {
+              "far_baseline_left": [
+                540.0,
+                1590.0
+              ],
+              "far_baseline_right": [
+                1740.0,
+                1650.0
+              ],
+              "far_long_service_left": [
+                540.0,
+                1620.0
+              ],
+              "far_long_service_right": [
+                1770.0,
+                1650.0
+              ],
+              "far_short_service_left": [
+                390.0,
+                1650.0
+              ],
+              "far_short_service_center": null,
+              "far_short_service_right": [
+                2040.0,
+                1710.0
+              ],
+              "net_left": [
+                270.0,
+                1710.0
+              ],
+              "net_right": null,
+              "near_short_service_left": [
+                90.0,
+                1800.0
+              ],
+              "near_short_service_center": [
+                1440.0,
+                1830.0
+              ],
+              "near_short_service_right": null,
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 9,
+            "matched_visible": 9,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [],
+            "mae_source_px": 21.938372815651498,
+            "normalized_mae_diagonal": 0.004979413820427101,
+            "per_landmark_error_px": {
+              "far_baseline_left": 16.8494614901033,
+              "far_baseline_right": 13.910971271468659,
+              "far_long_service_left": 11.36349539326191,
+              "far_long_service_right": 18.304927543558723,
+              "far_short_service_left": 22.31958050012781,
+              "far_short_service_right": 63.13933200402884,
+              "net_left": 16.000594229624685,
+              "near_short_service_left": 18.98489710136798,
+              "near_short_service_center": 16.572095807321563
+            },
+            "status": "abstained",
+            "reason": "Insufficient geometric consensus among visible landmarks"
+          },
+          {
+            "annotation": "bad_1-3507bbab2c-f000432.json",
+            "points": {
+              "far_baseline_left": [
+                270.0,
+                1620.0
+              ],
+              "far_baseline_right": [
+                1500.0,
+                1680.0
+              ],
+              "far_long_service_left": [
+                270.0,
+                1620.0
+              ],
+              "far_long_service_right": [
+                1530.0,
+                1710.0
+              ],
+              "far_short_service_left": [
+                90.0,
+                1650.0
+              ],
+              "far_short_service_center": [
+                990.0,
+                1740.0
+              ],
+              "far_short_service_right": [
+                2040.0,
+                1830.0
+              ],
+              "net_left": [
+                0.0,
+                1710.0
+              ],
+              "net_right": [
+                2040.0,
+                1830.0
+              ],
+              "near_short_service_left": [
+                60.0,
+                1710.0
+              ],
+              "near_short_service_center": [
+                1200.0,
+                1860.0
+              ],
+              "near_short_service_right": [
+                2070.0,
+                1830.0
+              ],
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 10,
+            "matched_visible": 10,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [
+              "near_short_service_left",
+              "near_short_service_right"
+            ],
+            "mae_source_px": 38.961801636800615,
+            "normalized_mae_diagonal": 0.008843269059618396,
+            "per_landmark_error_px": {
+              "far_baseline_left": 2.0937894670345187,
+              "far_baseline_right": 6.328471056515519,
+              "far_long_service_left": 17.82817469702083,
+              "far_long_service_right": 16.405773535585293,
+              "far_short_service_left": 38.88782518403719,
+              "far_short_service_center": 16.408847357243122,
+              "far_short_service_right": 233.4266993405658,
+              "net_left": 15.446397661503688,
+              "net_right": 31.636575203019323,
+              "near_short_service_center": 11.155462865480912
+            },
+            "status": "abstained",
+            "reason": "Distinct landmarks have duplicate or collapsed image locations"
+          },
+          {
+            "annotation": "bad_1-3507bbab2c-f000504.json",
+            "points": {
+              "far_baseline_left": null,
+              "far_baseline_right": [
+                930.0,
+                1710.0
+              ],
+              "far_long_service_left": null,
+              "far_long_service_right": [
+                960.0,
+                1710.0
+              ],
+              "far_short_service_left": null,
+              "far_short_service_center": [
+                420.0,
+                1740.0
+              ],
+              "far_short_service_right": [
+                1260.0,
+                1770.0
+              ],
+              "net_left": null,
+              "net_right": [
+                1470.0,
+                1860.0
+              ],
+              "near_short_service_left": null,
+              "near_short_service_center": [
+                630.0,
+                1890.0
+              ],
+              "near_short_service_right": [
+                1800.0,
+                1920.0
+              ],
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 7,
+            "matched_visible": 7,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [],
+            "mae_source_px": 16.94132803257735,
+            "normalized_mae_diagonal": 0.0038452205936449968,
+            "per_landmark_error_px": {
+              "far_baseline_right": 13.805239984223642,
+              "far_long_service_right": 10.37442276246505,
+              "far_short_service_center": 15.637856961168064,
+              "far_short_service_right": 17.46615950394796,
+              "net_right": 19.405420752148096,
+              "near_short_service_center": 27.412158304212493,
+              "near_short_service_right": 14.488037959876145
+            },
+            "status": "abstained",
+            "reason": "Insufficient geometric consensus among visible landmarks"
+          },
+          {
+            "annotation": "bad_1-3507bbab2c-f000576.json",
+            "points": {
+              "far_baseline_left": null,
+              "far_baseline_right": [
+                930.0,
+                1650.0
+              ],
+              "far_long_service_left": null,
+              "far_long_service_right": [
+                960.0,
+                1680.0
+              ],
+              "far_short_service_left": null,
+              "far_short_service_center": [
+                420.0,
+                1680.0
+              ],
+              "far_short_service_right": [
+                1230.0,
+                1710.0
+              ],
+              "net_left": null,
+              "net_right": [
+                1470.0,
+                1800.0
+              ],
+              "near_short_service_left": null,
+              "near_short_service_center": [
+                630.0,
+                1830.0
+              ],
+              "near_short_service_right": [
+                1800.0,
+                1860.0
+              ],
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 5,
+            "matched_visible": 5,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [
+              "far_baseline_right",
+              "far_long_service_right"
+            ],
+            "mae_source_px": 11.488455155804752,
+            "normalized_mae_diagonal": 0.0026075667898832876,
+            "per_landmark_error_px": {
+              "far_short_service_center": 10.72110133838695,
+              "far_short_service_right": 16.015871590820314,
+              "net_right": 18.129306172665398,
+              "near_short_service_center": 2.706022399273541,
+              "near_short_service_right": 9.869974277877551
+            },
+            "status": "abstained",
+            "reason": "Insufficient geometric consensus among visible landmarks"
+          },
+          {
+            "annotation": "bad_1-3507bbab2c-f000648.json",
+            "points": {
+              "far_baseline_left": [
+                120.0,
+                1530.0
+              ],
+              "far_baseline_right": [
+                1380.0,
+                1620.0
+              ],
+              "far_long_service_left": [
+                120.0,
+                1560.0
+              ],
+              "far_long_service_right": [
+                1410.0,
+                1620.0
+              ],
+              "far_short_service_left": null,
+              "far_short_service_center": [
+                870.0,
+                1650.0
+              ],
+              "far_short_service_right": [
+                1920.0,
+                1770.0
+              ],
+              "net_left": null,
+              "net_right": [
+                1950.0,
+                1740.0
+              ],
+              "near_short_service_left": null,
+              "near_short_service_center": [
+                1080.0,
+                1800.0
+              ],
+              "near_short_service_right": [
+                1950.0,
+                1770.0
+              ],
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 7,
+            "matched_visible": 7,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [
+              "far_short_service_right",
+              "near_short_service_right"
+            ],
+            "mae_source_px": 13.937300459683952,
+            "normalized_mae_diagonal": 0.003163388055785226,
+            "per_landmark_error_px": {
+              "far_baseline_left": 21.93490667498023,
+              "far_baseline_right": 22.530312264409574,
+              "far_long_service_left": 6.222120303909724,
+              "far_long_service_right": 10.755941710156998,
+              "far_short_service_center": 2.706422437722222,
+              "net_right": 18.729421968561308,
+              "near_short_service_center": 14.681977858047595
+            },
+            "status": "abstained",
+            "reason": "Insufficient geometric consensus among visible landmarks"
+          },
+          {
+            "annotation": "bad_1-3507bbab2c-f000720.json",
+            "points": {
+              "far_baseline_left": [
+                120.0,
+                1560.0
+              ],
+              "far_baseline_right": null,
+              "far_long_service_left": [
+                90.0,
+                1560.0
+              ],
+              "far_long_service_right": null,
+              "far_short_service_left": null,
+              "far_short_service_center": [
+                870.0,
+                1650.0
+              ],
+              "far_short_service_right": [
+                1680.0,
+                1710.0
+              ],
+              "net_left": null,
+              "net_right": [
+                1920.0,
+                1740.0
+              ],
+              "near_short_service_left": null,
+              "near_short_service_center": [
+                1050.0,
+                1800.0
+              ],
+              "near_short_service_right": [
+                1950.0,
+                1770.0
+              ],
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 6,
+            "matched_visible": 6,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [
+              "near_short_service_right"
+            ],
+            "mae_source_px": 11.78778880288119,
+            "normalized_mae_diagonal": 0.002675507384734875,
+            "per_landmark_error_px": {
+              "far_baseline_left": 3.220044254092559,
+              "far_long_service_left": 13.883411237720354,
+              "far_short_service_center": 12.15169135826,
+              "far_short_service_right": 19.62588069488374,
+              "net_right": 12.080521210279695,
+              "near_short_service_center": 9.765184062050796
+            },
+            "status": "abstained",
+            "reason": "Insufficient geometric consensus among visible landmarks"
+          },
+          {
+            "annotation": "bad_1-3507bbab2c-f000792.json",
+            "points": {
+              "far_baseline_left": null,
+              "far_baseline_right": [
+                1020.0,
+                1650.0
+              ],
+              "far_long_service_left": null,
+              "far_long_service_right": [
+                1050.0,
+                1650.0
+              ],
+              "far_short_service_left": null,
+              "far_short_service_center": [
+                540.0,
+                1680.0
+              ],
+              "far_short_service_right": [
+                1350.0,
+                1710.0
+              ],
+              "net_left": null,
+              "net_right": [
+                1590.0,
+                1770.0
+              ],
+              "near_short_service_left": null,
+              "near_short_service_center": [
+                750.0,
+                1830.0
+              ],
+              "near_short_service_right": [
+                1920.0,
+                1860.0
+              ],
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 7,
+            "matched_visible": 7,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [],
+            "mae_source_px": 13.519581494386632,
+            "normalized_mae_diagonal": 0.0030685772142367567,
+            "per_landmark_error_px": {
+              "far_baseline_right": 11.759235984670218,
+              "far_long_service_right": 14.988211867399201,
+              "far_short_service_center": 7.716154230112522,
+              "far_short_service_right": 15.37485706402285,
+              "net_right": 19.889759017768643,
+              "near_short_service_center": 13.584548173204688,
+              "near_short_service_right": 11.324304123528309
+            },
+            "status": "abstained",
+            "reason": "Insufficient geometric consensus among visible landmarks"
+          }
+        ]
+      },
+      "held_out_synthetic_raw_mae_input_px": 34.99337093955592
+    },
+    "balanced_mix": {
+      "real_examples_sampled": 8000,
+      "history": [
+        {
+          "step": 0,
+          "raw_mae_input_px": 186.02093931686048,
+          "visible_coverage": 0.0,
+          "abstention_rate": 1.0
+        },
+        {
+          "step": 200,
+          "raw_mae_input_px": 66.4527843386628,
+          "visible_coverage": 0.13953488372093023,
+          "abstention_rate": 1.0
+        },
+        {
+          "step": 400,
+          "raw_mae_input_px": 6.259352573128634,
+          "visible_coverage": 0.9534883720930233,
+          "abstention_rate": 1.0
+        },
+        {
+          "step": 600,
+          "raw_mae_input_px": 2.2174920370412425,
+          "visible_coverage": 1.0,
+          "abstention_rate": 0.5833333333333334
+        },
+        {
+          "step": 800,
+          "raw_mae_input_px": 1.610169344170149,
+          "visible_coverage": 1.0,
+          "abstention_rate": 0.8333333333333334
+        },
+        {
+          "step": 1000,
+          "raw_mae_input_px": 1.6316347343977107,
+          "visible_coverage": 1.0,
+          "abstention_rate": 0.75
+        }
+      ],
+      "real_training_evaluation": {
+        "raw_mae_input_px": 1.6316347343977107,
+        "visible_coverage": 1.0,
+        "confident_mae_source_px": 12.237262977382818,
+        "abstention_rate": 0.75,
+        "predicted_on_invisible_count": 4,
+        "frames": [
+          {
+            "annotation": "bad_1-3507bbab2c-f000000.json",
+            "points": {
+              "far_baseline_left": null,
+              "far_baseline_right": [
+                900.0,
+                1830.0
+              ],
+              "far_long_service_left": null,
+              "far_long_service_right": [
+                960.0,
+                1830.0
+              ],
+              "far_short_service_left": null,
+              "far_short_service_center": [
+                420.0,
+                1890.0
+              ],
+              "far_short_service_right": [
+                1230.0,
+                1890.0
+              ],
+              "net_left": null,
+              "net_right": [
+                1440.0,
+                1920.0
+              ],
+              "near_short_service_left": null,
+              "near_short_service_center": [
+                630.0,
+                2010.0
+              ],
+              "near_short_service_right": [
+                1800.0,
+                1980.0
+              ],
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 7,
+            "matched_visible": 7,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [],
+            "mae_source_px": 9.91018565523075,
+            "normalized_mae_diagonal": 0.002249342548297329,
+            "per_landmark_error_px": {
+              "far_baseline_right": 10.83820738998138,
+              "far_long_service_right": 14.072345126180595,
+              "far_short_service_center": 9.405711826224957,
+              "far_short_service_right": 9.155960618004427,
+              "net_right": 17.72419753645844,
+              "near_short_service_center": 4.106195476198587,
+              "near_short_service_right": 4.068681613566873
+            },
+            "fit": {
+              "visible_landmarks": 7,
+              "inlier_landmarks": 5,
+              "inlier_names": [
+                "far_baseline_right",
+                "far_short_service_center",
+                "far_short_service_right",
+                "near_short_service_center",
+                "near_short_service_right"
+              ],
+              "per_landmark_residual_px": {
+                "far_baseline_right": 1.7420539855957031,
+                "far_long_service_right": 20.916053771972656,
+                "far_short_service_center": 1.3431034088134766,
+                "far_short_service_right": 3.7189440727233887,
+                "net_right": 19.171375274658203,
+                "near_short_service_center": 0.8442944884300232,
+                "near_short_service_right": 1.7390053272247314
+              },
+              "reprojection_rmse_px": 2.116893768310547,
+              "max_reprojection_error_px": 3.7189440727233887
+            },
+            "status": "model_prediction_unverified"
+          },
+          {
+            "annotation": "bad_1-3507bbab2c-f000072.json",
+            "points": {
+              "far_baseline_left": null,
+              "far_baseline_right": [
+                930.0,
+                1830.0
+              ],
+              "far_long_service_left": null,
+              "far_long_service_right": [
+                960.0,
+                1830.0
+              ],
+              "far_short_service_left": null,
+              "far_short_service_center": [
+                420.0,
+                1890.0
+              ],
+              "far_short_service_right": [
+                1290.0,
+                1890.0
+              ],
+              "net_left": null,
+              "net_right": [
+                1470.0,
+                1920.0
+              ],
+              "near_short_service_left": null,
+              "near_short_service_center": [
+                630.0,
+                2010.0
+              ],
+              "near_short_service_right": [
+                1800.0,
+                1980.0
+              ],
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 6,
+            "matched_visible": 6,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [
+              "far_short_service_right"
+            ],
+            "mae_source_px": 11.015504028536357,
+            "normalized_mae_diagonal": 0.002500219750096149,
+            "per_landmark_error_px": {
+              "far_baseline_right": 13.642514738880264,
+              "far_long_service_right": 10.611621670207734,
+              "far_short_service_center": 6.407787101833366,
+              "net_right": 15.51184977654929,
+              "near_short_service_center": 4.501317146516341,
+              "near_short_service_right": 15.417933737231154
+            },
+            "fit": {
+              "visible_landmarks": 7,
+              "inlier_landmarks": 5,
+              "inlier_names": [
+                "far_long_service_right",
+                "far_short_service_center",
+                "net_right",
+                "near_short_service_center",
+                "near_short_service_right"
+              ],
+              "per_landmark_residual_px": {
+                "far_baseline_right": 13.070761680603027,
+                "far_long_service_right": 1.2086089849472046,
+                "far_short_service_center": 1.3885934352874756,
+                "far_short_service_right": 44.028079986572266,
+                "net_right": 1.7994054555892944,
+                "near_short_service_center": 0.8930083513259888,
+                "near_short_service_right": 1.256488561630249
+              },
+              "reprojection_rmse_px": 1.3418654203414917,
+              "max_reprojection_error_px": 1.7994054555892944
+            },
+            "status": "model_prediction_unverified"
+          },
+          {
+            "annotation": "bad_1-3507bbab2c-f000144.json",
+            "points": {
+              "far_baseline_left": null,
+              "far_baseline_right": [
+                780.0,
+                1830.0
+              ],
+              "far_long_service_left": null,
+              "far_long_service_right": [
+                810.0,
+                1830.0
+              ],
+              "far_short_service_left": null,
+              "far_short_service_center": [
+                270.0,
+                1890.0
+              ],
+              "far_short_service_right": [
+                1110.0,
+                1890.0
+              ],
+              "net_left": null,
+              "net_right": [
+                1320.0,
+                1950.0
+              ],
+              "near_short_service_left": null,
+              "near_short_service_center": [
+                510.0,
+                2010.0
+              ],
+              "near_short_service_right": [
+                1650.0,
+                2010.0
+              ],
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 7,
+            "matched_visible": 7,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [],
+            "mae_source_px": 13.018030831634018,
+            "normalized_mae_diagonal": 0.0029547388579128546,
+            "per_landmark_error_px": {
+              "far_baseline_right": 12.299307781920438,
+              "far_long_service_right": 20.308914751705142,
+              "far_short_service_center": 11.90076157649005,
+              "far_short_service_right": 12.331205176333745,
+              "net_right": 8.325573056341453,
+              "near_short_service_center": 14.242334620871931,
+              "near_short_service_right": 11.718118857775364
+            },
+            "status": "abstained",
+            "reason": "Insufficient geometric consensus among visible landmarks"
+          },
+          {
+            "annotation": "bad_1-3507bbab2c-f000216.json",
+            "points": {
+              "far_baseline_left": null,
+              "far_baseline_right": [
+                840.0,
+                1800.0
+              ],
+              "far_long_service_left": null,
+              "far_long_service_right": [
+                870.0,
+                1800.0
+              ],
+              "far_short_service_left": null,
+              "far_short_service_center": [
+                330.0,
+                1860.0
+              ],
+              "far_short_service_right": [
+                1140.0,
+                1860.0
+              ],
+              "net_left": null,
+              "net_right": [
+                1380.0,
+                1920.0
+              ],
+              "near_short_service_left": null,
+              "near_short_service_center": [
+                540.0,
+                1980.0
+              ],
+              "near_short_service_right": null,
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 6,
+            "matched_visible": 6,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [],
+            "mae_source_px": 8.251292903065599,
+            "normalized_mae_diagonal": 0.001872819021864943,
+            "per_landmark_error_px": {
+              "far_baseline_right": 6.594560933931741,
+              "far_long_service_right": 1.3972733200955265,
+              "far_short_service_center": 10.641718498034917,
+              "far_short_service_right": 16.173206829083252,
+              "net_right": 9.197884799175599,
+              "near_short_service_center": 5.503113038072558
+            },
+            "fit": {
+              "visible_landmarks": 6,
+              "inlier_landmarks": 4,
+              "inlier_names": [
+                "far_short_service_center",
+                "far_short_service_right",
+                "net_right",
+                "near_short_service_center"
+              ],
+              "per_landmark_residual_px": {
+                "far_baseline_right": 72.94249725341797,
+                "far_long_service_right": 53.851646423339844,
+                "far_short_service_center": 0.0,
+                "far_short_service_right": 0.0,
+                "net_right": 0.0,
+                "near_short_service_center": 0.0
+              },
+              "reprojection_rmse_px": 0.0,
+              "max_reprojection_error_px": 0.0
+            },
+            "status": "model_prediction_unverified"
+          },
+          {
+            "annotation": "bad_1-3507bbab2c-f000288.json",
+            "points": {
+              "far_baseline_left": [
+                630.0,
+                1590.0
+              ],
+              "far_baseline_right": [
+                1860.0,
+                1620.0
+              ],
+              "far_long_service_left": [
+                630.0,
+                1590.0
+              ],
+              "far_long_service_right": [
+                1890.0,
+                1620.0
+              ],
+              "far_short_service_left": [
+                480.0,
+                1650.0
+              ],
+              "far_short_service_center": [
+                1350.0,
+                1680.0
+              ],
+              "far_short_service_right": null,
+              "net_left": [
+                390.0,
+                1710.0
+              ],
+              "net_right": null,
+              "near_short_service_left": [
+                210.0,
+                1770.0
+              ],
+              "near_short_service_center": [
+                1560.0,
+                1800.0
+              ],
+              "near_short_service_right": null,
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 9,
+            "matched_visible": 9,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [],
+            "mae_source_px": 12.227035250986638,
+            "normalized_mae_diagonal": 0.002775204379249864,
+            "per_landmark_error_px": {
+              "far_baseline_left": 17.673681553512914,
+              "far_baseline_right": 9.878127171897514,
+              "far_long_service_left": 5.607623614841237,
+              "far_long_service_right": 11.35541106563652,
+              "far_short_service_left": 11.88802656230982,
+              "far_short_service_center": 11.318941545330832,
+              "net_left": 13.074665458645626,
+              "near_short_service_left": 15.80144259375616,
+              "near_short_service_center": 13.445397692949117
+            },
+            "status": "abstained",
+            "reason": "Distinct landmarks have duplicate or collapsed image locations"
+          },
+          {
+            "annotation": "bad_1-3507bbab2c-f000360.json",
+            "points": {
+              "far_baseline_left": [
+                540.0,
+                1620.0
+              ],
+              "far_baseline_right": [
+                1740.0,
+                1650.0
+              ],
+              "far_long_service_left": [
+                540.0,
+                1620.0
+              ],
+              "far_long_service_right": [
+                1770.0,
+                1650.0
+              ],
+              "far_short_service_left": [
+                390.0,
+                1680.0
+              ],
+              "far_short_service_center": null,
+              "far_short_service_right": [
+                2100.0,
+                1710.0
+              ],
+              "net_left": [
+                270.0,
+                1710.0
+              ],
+              "net_right": [
+                2100.0,
+                1740.0
+              ],
+              "near_short_service_left": [
+                90.0,
+                1770.0
+              ],
+              "near_short_service_center": [
+                1470.0,
+                1830.0
+              ],
+              "near_short_service_right": null,
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 9,
+            "matched_visible": 9,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [
+              "net_right"
+            ],
+            "mae_source_px": 13.098440193636272,
+            "normalized_mae_diagonal": 0.0029729895956412287,
+            "per_landmark_error_px": {
+              "far_baseline_left": 13.15259147872139,
+              "far_baseline_right": 13.910971271468659,
+              "far_long_service_left": 11.36349539326191,
+              "far_long_service_right": 18.304927543558723,
+              "far_short_service_left": 10.168481229343985,
+              "far_short_service_right": 7.7635749748692895,
+              "net_left": 16.000594229624685,
+              "near_short_service_left": 13.438248539544306,
+              "near_short_service_center": 13.783077082333497
+            },
+            "status": "abstained",
+            "reason": "Distinct landmarks have duplicate or collapsed image locations"
+          },
+          {
+            "annotation": "bad_1-3507bbab2c-f000432.json",
+            "points": {
+              "far_baseline_left": [
+                270.0,
+                1620.0
+              ],
+              "far_baseline_right": [
+                1500.0,
+                1680.0
+              ],
+              "far_long_service_left": [
+                270.0,
+                1620.0
+              ],
+              "far_long_service_right": [
+                1530.0,
+                1680.0
+              ],
+              "far_short_service_left": [
+                120.0,
+                1680.0
+              ],
+              "far_short_service_center": [
+                990.0,
+                1710.0
+              ],
+              "far_short_service_right": [
+                1800.0,
+                1770.0
+              ],
+              "net_left": [
+                30.0,
+                1710.0
+              ],
+              "net_right": [
+                2070.0,
+                1830.0
+              ],
+              "near_short_service_left": [
+                30.0,
+                1710.0
+              ],
+              "near_short_service_center": [
+                1200.0,
+                1860.0
+              ],
+              "near_short_service_right": null,
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 10,
+            "matched_visible": 10,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [
+              "near_short_service_left"
+            ],
+            "mae_source_px": 14.314884625185496,
+            "normalized_mae_diagonal": 0.0032490893896020834,
+            "per_landmark_error_px": {
+              "far_baseline_left": 2.0937894670345187,
+              "far_baseline_right": 6.328471056515519,
+              "far_long_service_left": 17.82817469702083,
+              "far_long_service_right": 15.319476269820642,
+              "far_short_service_left": 9.897123562653821,
+              "far_short_service_center": 16.201304445260757,
+              "far_short_service_right": 20.657972599439077,
+              "net_left": 29.85762906899967,
+              "net_right": 13.809442219629222,
+              "near_short_service_center": 11.155462865480912
+            },
+            "status": "abstained",
+            "reason": "Distinct landmarks have duplicate or collapsed image locations"
+          },
+          {
+            "annotation": "bad_1-3507bbab2c-f000504.json",
+            "points": {
+              "far_baseline_left": null,
+              "far_baseline_right": [
+                930.0,
+                1710.0
+              ],
+              "far_long_service_left": null,
+              "far_long_service_right": [
+                960.0,
+                1710.0
+              ],
+              "far_short_service_left": null,
+              "far_short_service_center": [
+                420.0,
+                1740.0
+              ],
+              "far_short_service_right": [
+                1260.0,
+                1770.0
+              ],
+              "net_left": null,
+              "net_right": [
+                1470.0,
+                1860.0
+              ],
+              "near_short_service_left": null,
+              "near_short_service_center": [
+                630.0,
+                1860.0
+              ],
+              "near_short_service_right": [
+                1800.0,
+                1920.0
+              ],
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 7,
+            "matched_visible": 7,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [],
+            "mae_source_px": 15.0342040191417,
+            "normalized_mae_diagonal": 0.003412355323756116,
+            "per_landmark_error_px": {
+              "far_baseline_right": 13.805239984223642,
+              "far_long_service_right": 10.37442276246505,
+              "far_short_service_center": 15.637856961168064,
+              "far_short_service_right": 17.46615950394796,
+              "net_right": 19.405420752148096,
+              "near_short_service_center": 14.06229021016296,
+              "near_short_service_right": 14.488037959876145
+            },
+            "status": "abstained",
+            "reason": "Insufficient geometric consensus among visible landmarks"
+          },
+          {
+            "annotation": "bad_1-3507bbab2c-f000576.json",
+            "points": {
+              "far_baseline_left": null,
+              "far_baseline_right": [
+                930.0,
+                1650.0
+              ],
+              "far_long_service_left": null,
+              "far_long_service_right": null,
+              "far_short_service_left": null,
+              "far_short_service_center": [
+                420.0,
+                1680.0
+              ],
+              "far_short_service_right": [
+                1230.0,
+                1710.0
+              ],
+              "net_left": null,
+              "net_right": [
+                1470.0,
+                1800.0
+              ],
+              "near_short_service_left": null,
+              "near_short_service_center": [
+                630.0,
+                1830.0
+              ],
+              "near_short_service_right": [
+                1800.0,
+                1860.0
+              ],
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 5,
+            "matched_visible": 5,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [
+              "far_baseline_right"
+            ],
+            "mae_source_px": 11.488455155804752,
+            "normalized_mae_diagonal": 0.0026075667898832876,
+            "per_landmark_error_px": {
+              "far_short_service_center": 10.72110133838695,
+              "far_short_service_right": 16.015871590820314,
+              "net_right": 18.129306172665398,
+              "near_short_service_center": 2.706022399273541,
+              "near_short_service_right": 9.869974277877551
+            },
+            "status": "abstained",
+            "reason": "Projected court crosses the homography horizon"
+          },
+          {
+            "annotation": "bad_1-3507bbab2c-f000648.json",
+            "points": {
+              "far_baseline_left": [
+                120.0,
+                1560.0
+              ],
+              "far_baseline_right": [
+                1350.0,
+                1590.0
+              ],
+              "far_long_service_left": [
+                120.0,
+                1560.0
+              ],
+              "far_long_service_right": [
+                1380.0,
+                1620.0
+              ],
+              "far_short_service_left": null,
+              "far_short_service_center": [
+                870.0,
+                1650.0
+              ],
+              "far_short_service_right": null,
+              "net_left": null,
+              "net_right": [
+                1920.0,
+                1740.0
+              ],
+              "near_short_service_left": null,
+              "near_short_service_center": [
+                1080.0,
+                1770.0
+              ],
+              "near_short_service_right": null,
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 7,
+            "matched_visible": 7,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [],
+            "mae_source_px": 12.985085761352865,
+            "normalized_mae_diagonal": 0.002947261223192568,
+            "per_landmark_error_px": {
+              "far_baseline_left": 14.041177039908922,
+              "far_baseline_right": 20.002939346451946,
+              "far_long_service_left": 6.222120303909724,
+              "far_long_service_right": 19.460728745939043,
+              "far_short_service_center": 2.706422437722222,
+              "net_right": 12.208518707131645,
+              "near_short_service_center": 16.253693748406548
+            },
+            "status": "abstained",
+            "reason": "Distinct landmarks have duplicate or collapsed image locations"
+          },
+          {
+            "annotation": "bad_1-3507bbab2c-f000720.json",
+            "points": {
+              "far_baseline_left": [
+                120.0,
+                1560.0
+              ],
+              "far_baseline_right": null,
+              "far_long_service_left": [
+                120.0,
+                1560.0
+              ],
+              "far_long_service_right": null,
+              "far_short_service_left": null,
+              "far_short_service_center": [
+                870.0,
+                1650.0
+              ],
+              "far_short_service_right": [
+                1680.0,
+                1680.0
+              ],
+              "net_left": null,
+              "net_right": [
+                1920.0,
+                1740.0
+              ],
+              "near_short_service_left": null,
+              "near_short_service_center": [
+                1050.0,
+                1800.0
+              ],
+              "near_short_service_right": null,
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 6,
+            "matched_visible": 6,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [],
+            "mae_source_px": 11.002825960102987,
+            "normalized_mae_diagonal": 0.0024973421734543477,
+            "per_landmark_error_px": {
+              "far_baseline_left": 3.220044254092559,
+              "far_long_service_left": 17.742830917860392,
+              "far_short_service_center": 12.15169135826,
+              "far_short_service_right": 11.05668395807447,
+              "net_right": 12.080521210279695,
+              "near_short_service_center": 9.765184062050796
+            },
+            "status": "abstained",
+            "reason": "Distinct landmarks have duplicate or collapsed image locations"
+          },
+          {
+            "annotation": "bad_1-3507bbab2c-f000792.json",
+            "points": {
+              "far_baseline_left": null,
+              "far_baseline_right": [
+                1020.0,
+                1650.0
+              ],
+              "far_long_service_left": null,
+              "far_long_service_right": [
+                1050.0,
+                1650.0
+              ],
+              "far_short_service_left": null,
+              "far_short_service_center": [
+                540.0,
+                1680.0
+              ],
+              "far_short_service_right": [
+                1350.0,
+                1710.0
+              ],
+              "net_left": null,
+              "net_right": [
+                1590.0,
+                1800.0
+              ],
+              "near_short_service_left": null,
+              "near_short_service_center": [
+                750.0,
+                1830.0
+              ],
+              "near_short_service_right": [
+                1920.0,
+                1860.0
+              ],
+              "near_long_service_left": null,
+              "near_long_service_right": null,
+              "near_baseline_left": null,
+              "near_baseline_right": null
+            },
+            "annotated_visible": 7,
+            "matched_visible": 7,
+            "visible_coverage": 1.0,
+            "missed_visible": [],
+            "predicted_on_invisible": [],
+            "mae_source_px": 12.233419114384631,
+            "normalized_mae_diagonal": 0.002776653342575394,
+            "per_landmark_error_px": {
+              "far_baseline_right": 11.759235984670218,
+              "far_long_service_right": 14.988211867399201,
+              "far_short_service_center": 7.716154230112522,
+              "far_short_service_right": 15.37485706402285,
+              "net_right": 10.886622357754623,
+              "near_short_service_center": 13.584548173204688,
+              "near_short_service_right": 11.324304123528309
+            },
+            "status": "abstained",
+            "reason": "Insufficient geometric consensus among visible landmarks"
+          }
+        ]
+      },
+      "held_out_synthetic_raw_mae_input_px": 40.84314992804276
+    }
+  }
+}

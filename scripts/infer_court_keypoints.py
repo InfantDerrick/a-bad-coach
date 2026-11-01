@@ -69,8 +69,10 @@ def predict(
         flat_index = int(np.argmax(heatmap))
         y_heat, x_heat = np.unravel_index(flat_index, heatmap.shape)
         confidence = float(heatmap[y_heat, x_heat])
-        x_input = (x_heat + 0.5) * stride
-        y_input = (y_heat + 0.5) * stride
+        # Training centers targets at input_coordinate / stride, without a
+        # half-cell shift. Decode on that same grid.
+        x_input = x_heat * stride
+        y_input = y_heat * stride
         x_source = (x_input - pad_x) / scale
         y_source = (y_input - pad_y) / scale
         confidences[landmark.name] = round(confidence, 6)
@@ -123,11 +125,22 @@ def main(argv: list[str] | None = None) -> int:
         frame = read_input(args.input, args.frame_index)
         device = choose_device(args.device)
         points, confidences, metadata = predict(frame, args.checkpoint, args.confidence, device)
-        image_to_court, diagnostics = fit_homography_from_landmarks(points)
     except (RuntimeError, ValueError, KeyError, OSError) as exc:
         print(f"Court inference failed: {exc}", file=sys.stderr)
         return 1
     args.output_dir.mkdir(parents=True, exist_ok=True)
+    try:
+        image_to_court, diagnostics = fit_homography_from_landmarks(points)
+    except ValueError as exc:
+        # Replace any older successful result so downstream consumers cannot
+        # accidentally reuse its calibration after this prediction abstains.
+        for filename in ("calibration.json", "court_overlay.png"):
+            (args.output_dir / filename).unlink(missing_ok=True)
+        result = {"status": "abstained", "reason": str(exc), "points": points,
+                  "confidence": confidences, "model": metadata}
+        (args.output_dir / "prediction.json").write_text(json.dumps(result, indent=2))
+        print(json.dumps(result, indent=2))
+        return 1
     overlay = draw_overlay(frame, points, image_to_court, diagnostics)
     cv2.imwrite(str(args.output_dir / "court_overlay.png"), overlay)
     visible_names = diagnostics["inlier_names"]
@@ -145,7 +158,7 @@ def main(argv: list[str] | None = None) -> int:
     }
     (args.output_dir / "calibration.json").write_text(json.dumps(calibration, indent=2))
     (args.output_dir / "prediction.json").write_text(
-        json.dumps({"points": points, "confidence": confidences, "fit": diagnostics, "model": metadata}, indent=2)
+        json.dumps({"status": "model_prediction_unverified", "points": points, "confidence": confidences, "fit": diagnostics, "model": metadata}, indent=2)
     )
     print(json.dumps({"output": str(args.output_dir), "fit": diagnostics}, indent=2))
     return 0

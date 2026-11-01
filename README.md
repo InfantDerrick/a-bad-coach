@@ -93,3 +93,7 @@ python scripts/phase0_video_basics.py data/raw/your_video.mp4 --no-show
 Open `data/processed/phase0/` to confirm PNGs were written.
 
 3. Optional: `jupyter lab` in `notebooks/` and repeat the same operations in a notebook for learning.
+
+## Annotate the new held-out video
+
+See [docs/annotate_bad2.md](docs/annotate_bad2.md) for the prepared 27-frame annotation set, local startup, and label commit instructions.

@@ -1,103 +1,72 @@
 # Agent handoff
 
-## Product direction
+## Immediate task: annotate bad_2 locally
 
-Build an offline-first badminton video analysis MVP. A user uploads a clip, local GPU inference extracts court geometry, players, shuttle, shots, speed, split-step and movement timing, then produces a report/dashboard. Do not present derived speed or movement metrics as trustworthy until court calibration passes quality checks.
+Read `docs/annotate_bad2.md` for complete setup, annotation, and push-back instructions.
 
-The immediate focus is reliable court detection from partial, portrait, oblique, and occluded views. The court has a fixed geometric prior; predict named visible intersections and fit the complete court instead of independently guessing four corners.
+The handoff includes **27 unannotated JPEG frames** in `data/court_eval_bad2`: 24 evenly spaced samples and the three frozen-model samples. The first three manifest entries are frame 1861 (~31.1s), frame 9306 (~155.4s), and frame 16750 (~279.7s). Start with those. No model predictions are prefilled.
 
-## Current repository state
+```bash
+git pull --ff-only origin master
+git lfs pull
+# Activate a Python 3.11/3.12 environment; no GPU required for annotation.
+python -m pip install numpy opencv-python
+python scripts/court_annotation_server.py --dataset data/court_eval_bad2
+```
 
-- The completed court dataset is in `data/court_dataset` and contains 132 samples:
-  - 12 manually annotated frames from `data/raw/bad_1.MOV`.
-  - 120 generated partial-view samples across 20 synthetic scene groups.
-- All 132 samples have complete, schema-valid annotations.
-- Real-frame all-point homography fits are geometrically consistent (roughly 0.75-7.4 px RMSE on the original 2160x3840 frames).
-- Wikimedia Commons samples were removed because search results were not reliable enough.
-- Git LFS tracks `*.MOV` and `*.pt`. Run `git lfs pull` after cloning.
-- Reproducible files under `data/processed/` are intentionally ignored.
-- The local annotation UI is `scripts/court_annotation_server.py`; it includes keyboard shortcuts and partial-visibility labeling.
-- The movement report remains diagnostic-only because its earlier calibration was provisional.
+Open http://127.0.0.1:8765. Resolve all 16 landmarks per image, save, and wait for Saved before changing images. Labels go to `data/court_eval_bad2/annotations/*.json`. Commit and push those labels when done. Do not rerun the sampler on another machine; the prepared frames and manifest are already portable and source-grouped.
+
+## Product direction and dataset separation
+
+Build an offline-first badminton video analysis MVP. Local inference should extract court geometry, players, shuttle, shots, speed, split-step/movement timing, and an evidence-linked dashboard. Do not present derived movement/speed as trustworthy until calibration passes quality checks.
+
+The immediate focus remains reliable court detection under partial, portrait, oblique, and occluded views. Predict named visible intersections and fit the fixed court geometry; do not independently guess four corners.
+
+- `data/court_dataset` is the training dataset: 12 labeled real frames from bad_1 plus 120 labeled synthetic frames across 20 scene groups, 132 total.
+- `data/court_eval_bad2` is a **separate held-out source for evaluation**, not training. All 27 images currently require human annotation.
+- Do not silently merge bad_2 into training or tune thresholds against it while describing it as an untouched test source. Future model selection against this source makes it validation data; reserve another source for independent final testing.
+- The existing seed-7 split holds out five synthetic groups (30 frames), with all 12 real bad_1 frames in training. Its validation score does not establish real-world generalization.
+- Add diverse new real sources for training; split by entire source video/venue.
+- Licensed professional footage requires recorded provenance/usage rights before use. Do not claim pro-trained accuracy from these clips.
 
 ## Annotation convention
 
-The 16 landmarks in `src/pipeline/court_keypoints.py` use `far` for the side across the net and `near` for the camera side. `left/right outer` means the outer doubles sidelines, not the inner singles sidelines.
+The 16 landmarks in `src/pipeline/court_keypoints.py` use far = across the net and near = camera side. Left/right outer means doubles sidelines, not inner singles sidelines. For the net, label its court-plane intersection with the outer sideline, not the top of the net.
 
-Only click an exact visible line intersection. Use `null` / **Not visible** when it is outside the frame, occluded, or ambiguous. Never extrapolate a missing point by hand.
+Only click exact visible intersections. Use null / Not visible for points outside the frame, occluded, or ambiguous. Never extrapolate labels by hand. The UI requires every landmark resolved before saving and does not autosave on image changes.
 
-## Court model
+## Current model evidence
 
-Relevant files:
+- Interrupted CPU baseline: `data/models/court_keypoints.pt`; not production-ready.
+- Completed 40-epoch GPU baseline: `data/models/court_keypoints_5080.pt`, best held-out synthetic MAE 58.5868 input pixels. It fails the real-frame calibration checks. See `docs/5080_baseline.md`.
+- A no-augmentation one-frame diagnostic reaches its nearest-grid error floor (1.2723 input pixels) after 200 updates. The basic model/loss can learn that image. Diagnostic artifacts remain ignored under data/processed.
+- Three matched 1000-update, no-augmentation diagnostic runs have real bad_1 training-frame mean input error: real-only 1.58, natural mix 2.61, 50/50 mix 1.63 pixels. All reach 100% visible-label coverage at confidence 0.55, but full-court fits still reject 8/12, 11/12, and 9/12 frames. See `docs/training_comparison.md`.
+- Diagnostic checkpoint copies and detailed training metrics are versioned under `data/models/diagnostics/training_comparison/`. Do not promote them to a general-purpose court model.
+- All three frozen models fail on sampled unseen bad_2 frames (0-1 confident landmark per frame, all nine fits abstain). No bad_2 training has occurred. Frozen outputs: `data/court_eval_bad2/frozen_predictions.json`; visual evidence: `docs/figures/`. See `docs/bad2_unseen_check.md`.
+- No numeric accuracy claim can be made on bad_2 until annotations exist.
 
-- `src/pipeline/court_keypoints.py`: canonical court dimensions, annotation validation, homography fitting.
-- `scripts/train_court_keypoints.py`: small heatmap network and grouped source split.
-- `scripts/infer_court_keypoints.py`: frame inference, confidence filtering, homography and overlay output.
-- `scripts/generate_synthetic_courts.py`: synthetic geometry generation.
-- `scripts/prepare_court_dataset.py`: real-frame extraction.
-- `docs/court_model_training.md`: workflow and release requirements.
+## Implemented fixes and next engineering work
 
-`data/models/court_keypoints.pt` is only an interrupted CPU baseline. It was saved around epoch 11 of a planned 40-epoch run at 288x512 input. Its held-out synthetic validation MAE is 69.37 input pixels, so it is not production-ready. The training script currently starts from scratch and does not resume from this checkpoint.
+- Inference now decodes heatmap coordinates without the erroneous +0.5-cell offset, matching training labels/metrics. Regression test includes letterbox padding.
+- Fitter rejects duplicate/collapsed points, near-collinearity, weak consensus, unstable normalized transforms, and full-court horizon crossings. It refits accepted inliers and reports every supplied point's residual.
+- Inference writes explicit abstention and removes stale calibration/overlay output when a fit fails. Geometry checks must stay intact.
+- `scripts/evaluate_court_keypoints.py` separates annotation-based error and visible-point coverage from fit residuals and abstention. Missing detections are not zero error.
+- Remaining localization issue: one output cell at current resolution is 30 pixels in the original portrait video; nearby intersections can merge. Investigate subpixel decoding/higher input or heatmap resolution and inspect court extrapolation before reconnecting movement telemetry.
+- Trainer still needs resume support, early stopping, mixed precision, configurable workers, and explicit device warnings. Current trainer starts from scratch; do not overwrite checkpoints blindly.
+- Stabilize one court solution across static clips once detection/calibration is reliable. The earlier movement-report calibration remains provisional/diagnostic.
 
-With seed 7 and a grouped split, all 12 real frames are in training; five complete synthetic scene groups are held out. This prevents synthetic scene leakage, but it does not measure real-world generalization because all real frames come from one clip.
+## Local GPU setup and verification
 
-## Continue on the RTX 5080 PC
-
-Use Python 3.11 or 3.12. Install a CUDA-enabled PyTorch build from the official PyTorch installer, then install the remaining requirements.
-
-PowerShell outline:
-
-```powershell
-git lfs pull
-py -3.12 -m venv .venv
-.venv\Scripts\Activate.ps1
-python -m pip install --upgrade pip
-# Install the current CUDA-enabled torch build from https://pytorch.org/get-started/locally/
-pip install -r requirements.txt
-python -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_device_name(0))"
-```
-
-The verification command must report `True` and the RTX 5080 before training.
-
-Run the first complete baseline:
-
-```powershell
-python scripts/train_court_keypoints.py `
-  --dataset data/court_dataset `
-  --output data/models/court_keypoints_5080.pt `
-  --epochs 40 `
-  --batch-size 16 `
-  --device cuda
-```
-
-Keep the existing checkpoint until the new run has been evaluated. Do not overwrite it blindly.
-
-Then infer an annotated real frame and inspect the overlay:
-
-```powershell
-python scripts/infer_court_keypoints.py data/raw/bad_1.MOV `
-  --checkpoint data/models/court_keypoints_5080.pt `
-  --frame-index 0 `
-  --output-dir data/processed/court_prediction_5080 `
-  --device cuda
-```
-
-Compare predictions against the frame-0 annotation, not just the synthetic validation number. The model should abstain when it has fewer than four non-collinear, high-confidence points or poor geometric consensus.
-
-## Known technical follow-ups
-
-1. Add epoch/resume support, unbuffered progress, early stopping, mixed precision, configurable data-loader workers, and explicit GPU/CPU warnings to the trainer.
-2. Improve homography fitting. OpenCV RANSAC once selected a poor subset even though an all-point fit gave about 4.8 px RMSE. Refit with all accepted inliers and report per-landmark residuals before declaring labels or predictions wrong.
-3. Add a real-frame evaluation command that reports normalized keypoint error, homography reprojection error, inlier count, and failure/abstention rate.
-4. Add real videos from different phones, venues, floor colors, lighting, landscape/portrait framing, and partial-court angles. Split by entire source video/venue.
-5. Fine-tune/evaluate on licensed professional-match footage only after provenance and usage rights are recorded. Do not claim “pro-trained” accuracy from the current single amateur clip.
-6. Once calibration is reliable, stabilize one court solution across a static clip rather than redetecting independently on every frame, then reconnect player/shuttle/shot telemetry.
-
-## Verification
-
-Current test command:
+Use Python 3.11/3.12, CUDA-enabled PyTorch from its official installer, then requirements.txt. The verified RTX 5080 environment uses Python 3.12.14 and torch 2.14.1+cu130. Verify CUDA availability and GPU name before training. Annotation alone needs neither torch nor CUDA.
 
 ```bash
 python -m unittest tests/test_analyze_movement.py tests/test_court_training.py tests/test_commons_scraper.py
 ```
 
-At handoff, all 10 tests pass.
+All **17 tests** pass at handoff. Relevant files: `scripts/train_court_keypoints.py`, `scripts/infer_court_keypoints.py`, `scripts/evaluate_court_keypoints.py`, `scripts/diagnose_court_memorization.py`, `scripts/compare_court_training.py`, and `src/pipeline/court_keypoints.py`.
+
+## Storage and transfer
+
+Git LFS tracks both `*.MOV` and `*.mov`, plus `*.pt`. Run git lfs pull after pulling; bad_2.mov is about 2.08 GB. Extracted annotation JPEGs are committed normally, so the annotator can use them without the original MOV or model weights. Reproducible data/processed outputs and .venv are ignored.
+
+This sandbox blocks the bundled MSYS shell. Native Windows OpenSSH and direct git-lfs.exe were needed for transfer. Verify LFS pointers and object hashes; do not commit materialized binaries as ordinary Git blobs. Normal external-machine Git/Git LFS installation should handle the standard filters.
