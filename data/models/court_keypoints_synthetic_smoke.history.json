@@ -1,0 +1,13 @@
+[
+  {
+    "epoch": 1,
+    "train": {
+      "loss": 0.6379871865113577,
+      "visible_keypoint_mae_input_px": 83.61606163237674
+    },
+    "validation": {
+      "loss": 0.5765258272488912,
+      "visible_keypoint_mae_input_px": 151.19673916538065
+    }
+  }
+]

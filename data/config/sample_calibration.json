@@ -1,0 +1,20 @@
+{
+  "status": "provisional",
+  "image_points": [
+    [500.0, 1700.0],
+    [1500.0, 1740.0],
+    [2300.0, 2660.0],
+    [-200.0, 2840.0]
+  ],
+  "court_points_m": [
+    [0.0, 0.0],
+    [6.1, 0.0],
+    [6.1, 13.4],
+    [0.0, 13.4]
+  ],
+  "notes": [
+    "Approximate full-court boundary extrapolated from the visible line geometry.",
+    "Two near-baseline anchors are outside the image and must be corrected in a calibration UI.",
+    "Do not use this calibration for coaching conclusions or ground-truth validation."
+  ]
+}

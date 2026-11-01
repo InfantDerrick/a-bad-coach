@@ -1,0 +1,14 @@
+{
+  "status": "provisional",
+  "frame_index": 0,
+  "bbox_xywh": [
+    1060.0,
+    1310.0,
+    360.0,
+    900.0
+  ],
+  "notes": [
+    "Manual seed for the near-court player in bad_1.MOV.",
+    "Verify the green box in the overlay before trusting movement metrics."
+  ]
+}

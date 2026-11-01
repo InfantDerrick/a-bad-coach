@@ -1,0 +1,7 @@
+.DS_Store
+.venv/
+__pycache__/
+*.py[cod]
+
+# Reproducible analysis output; raw inputs, annotations, and checkpoints are kept.
+data/processed/
