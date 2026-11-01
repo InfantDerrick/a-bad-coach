@@ -3,14 +3,20 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from pathlib import Path
 
 import cv2
 import numpy as np
 
-from infer_court_keypoints import predict
-from train_court_keypoints import choose_device
-from pipeline.court_keypoints import fit_homography_from_landmarks, validate_annotation
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
+sys.path.insert(0, str(ROOT / "scripts"))
+
+from infer_court_keypoints import predict  # noqa: E402
+from train_court_keypoints import choose_device  # noqa: E402
+from pipeline.court_keypoints import validate_annotation  # noqa: E402
+from pipeline.court_tracking import select_primary_court, summarize_eval_for_release  # noqa: E402
 
 
 def evaluate(annotation: dict, points: dict) -> dict:
@@ -29,7 +35,7 @@ def evaluate(annotation: dict, points: dict) -> dict:
         'per_landmark_error_px': errors,
     }
     try:
-        _, result['fit'] = fit_homography_from_landmarks(points)
+        _, result['fit'] = select_primary_court(points, (annotation['image_height'], annotation['image_width']))
         result['status'] = 'model_prediction_unverified'
     except ValueError as exc:
         result.update(status='abstained', reason=str(exc))
@@ -44,6 +50,12 @@ def main() -> int:
     parser.add_argument('--output', type=Path, required=True)
     parser.add_argument('--confidence', type=float, default=.55)
     parser.add_argument('--device', default='auto')
+    parser.add_argument(
+        '--paired-held-out-output',
+        type=Path,
+        default=None,
+        help='Optional path for release-gate summary JSON paired with this eval',
+    )
     args = parser.parse_args()
     paths = sorted((args.dataset / 'annotations').glob(args.annotation_glob))
     if not paths:
@@ -62,13 +74,30 @@ def main() -> int:
         rows.append({'annotation': path.name, **evaluate(annotation, points)})
     result = {
         'checkpoint': str(args.checkpoint), 'confidence_threshold': args.confidence,
+        'dataset': str(args.dataset),
         'scope': 'Annotation comparison only; verify source-video split before claiming generalization.',
         'frames': len(rows),
         'abstention_rate': sum(row['status'] == 'abstained' for row in rows) / len(rows),
         'results': rows,
     }
+    release = summarize_eval_for_release(result)
+    result['release_gate'] = release
+    result['metrics_trustworthy'] = bool(release.get('metrics_trustworthy'))
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2))
+    if args.paired_held_out_output is not None:
+        args.paired_held_out_output.parent.mkdir(parents=True, exist_ok=True)
+        args.paired_held_out_output.write_text(
+            json.dumps(
+                {
+                    'checkpoint': str(args.checkpoint),
+                    'eval_output': str(args.output),
+                    'dataset': str(args.dataset),
+                    'release_gate': release,
+                },
+                indent=2,
+            )
+        )
     print(json.dumps(result, indent=2))
     return 0
 

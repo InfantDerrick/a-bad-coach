@@ -1,0 +1,59 @@
+{
+  "image": "synthetic-hard-s0004-f000004.jpg",
+  "source_video": "synthetic-hard-scene-0004",
+  "source_path": "synthetic://canonical-court",
+  "frame_index": 4,
+  "timestamp_s": null,
+  "width": 540,
+  "height": 960,
+  "image_width": 540,
+  "image_height": 960,
+  "points": {
+    "far_baseline_left": [
+      266.651,
+      423.92
+    ],
+    "far_baseline_right": null,
+    "far_long_service_left": [
+      260.927,
+      439.726
+    ],
+    "far_long_service_right": null,
+    "far_short_service_left": [
+      225.281,
+      538.154
+    ],
+    "far_short_service_center": [
+      505.819,
+      584.157
+    ],
+    "far_short_service_right": null,
+    "net_left": [
+      202.691,
+      600.529
+    ],
+    "net_right": null,
+    "near_short_service_left": [
+      175.68,
+      675.115
+    ],
+    "near_short_service_center": [
+      510.133,
+      702.673
+    ],
+    "near_short_service_right": null,
+    "near_long_service_left": [
+      101.934,
+      878.746
+    ],
+    "near_long_service_right": null,
+    "near_baseline_left": [
+      83.474,
+      929.72
+    ],
+    "near_baseline_right": null
+  },
+  "complete": true,
+  "synthetic": true,
+  "synthetic_mode": "normal"
+}

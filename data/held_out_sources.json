@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "description": "Source-video prefixes forbidden from training while reserved for evaluation or final testing.",
+  "held_out_eval": [
+    {
+      "prefix": "bad_2",
+      "dataset": "data/court_eval_bad2",
+      "role": "source_held_out_evaluation",
+      "notes": "Do not merge into data/court_dataset or tune thresholds against this set while calling it untouched."
+    }
+  ],
+  "final_test_slots": [
+    {
+      "prefix": null,
+      "dataset": null,
+      "role": "independent_final_test",
+      "notes": "Reserve a future untouched video/venue here after bad_2 is used for model selection."
+    }
+  ]
+}

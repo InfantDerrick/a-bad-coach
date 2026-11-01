@@ -51,12 +51,27 @@ def court_segments() -> list[tuple[tuple[float, float], tuple[float, float]]]:
     return segments
 
 
-def random_quad(width: int, height: int, rng: random.Random) -> np.ndarray:
-    center = rng.uniform(-0.10, 1.10) * width
-    far_y = rng.uniform(0.08, 0.52) * height
-    near_y = rng.uniform(0.66, 1.18) * height
-    far_width = rng.uniform(0.20, 0.78) * width
-    near_width = rng.uniform(0.65, 1.55) * width
+def random_quad(width: int, height: int, rng: random.Random, mode: str = "normal") -> np.ndarray:
+    if mode == "center_crop":
+        # Zoomed so sidelines often leave the frame; only inner landmarks remain.
+        center = rng.uniform(0.35, 0.65) * width
+        far_y = rng.uniform(-0.05, 0.35) * height
+        near_y = rng.uniform(0.75, 1.25) * height
+        far_width = rng.uniform(0.85, 1.45) * width
+        near_width = rng.uniform(1.15, 1.85) * width
+    elif mode == "edge_neighbor":
+        # Primary court centered; a second court may sit mostly off one side.
+        center = rng.uniform(0.20, 0.80) * width
+        far_y = rng.uniform(0.08, 0.48) * height
+        near_y = rng.uniform(0.68, 1.15) * height
+        far_width = rng.uniform(0.28, 0.70) * width
+        near_width = rng.uniform(0.70, 1.35) * width
+    else:
+        center = rng.uniform(-0.10, 1.10) * width
+        far_y = rng.uniform(0.08, 0.52) * height
+        near_y = rng.uniform(0.66, 1.18) * height
+        far_width = rng.uniform(0.20, 0.78) * width
+        near_width = rng.uniform(0.65, 1.55) * width
     skew = rng.uniform(-0.22, 0.22) * width
     roll_far = rng.uniform(-0.06, 0.06) * height
     roll_near = rng.uniform(-0.08, 0.08) * height
@@ -85,7 +100,20 @@ def background(width: int, height: int, rng: random.Random) -> np.ndarray:
     return np.clip(base.astype(np.float32) * gradient + noise, 0, 255).astype(np.uint8)
 
 
-def render_scene(width: int, height: int, quad: np.ndarray, rng: random.Random) -> tuple[np.ndarray, dict[str, list[float] | None]]:
+def _draw_court_lines(image: np.ndarray, homography: np.ndarray, line_color: tuple[int, int, int], thickness: int) -> None:
+    for start, end in court_segments():
+        p0 = transform_xy(start, homography)
+        p1 = transform_xy(end, homography)
+        cv2.line(image, tuple(np.round(p0).astype(int)), tuple(np.round(p1).astype(int)), line_color, thickness, cv2.LINE_AA)
+
+
+def render_scene(
+    width: int,
+    height: int,
+    quad: np.ndarray,
+    rng: random.Random,
+    mode: str = "normal",
+) -> tuple[np.ndarray, dict[str, list[float] | None]]:
     image = background(width, height, rng)
     court_corners = np.asarray(
         [[0, 0], [COURT_WIDTH_M, 0], [COURT_WIDTH_M, COURT_LENGTH_M], [0, COURT_LENGTH_M]],
@@ -94,10 +122,14 @@ def render_scene(width: int, height: int, quad: np.ndarray, rng: random.Random) 
     homography = cv2.getPerspectiveTransform(court_corners, quad)
     line_color = rng.choice([(238, 238, 238), (210, 235, 238), (90, 220, 248)])
     thickness = rng.randint(2, 6)
-    for start, end in court_segments():
-        p0 = transform_xy(start, homography)
-        p1 = transform_xy(end, homography)
-        cv2.line(image, tuple(np.round(p0).astype(int)), tuple(np.round(p1).astype(int)), line_color, thickness, cv2.LINE_AA)
+    if mode == "edge_neighbor" and rng.random() < 0.85:
+        # Ghost neighbor court near one image edge; labels stay on the primary court only.
+        shift = rng.choice([-1.0, 1.0]) * rng.uniform(0.55, 0.95) * width
+        neighbor = quad + np.asarray([[shift, 0], [shift, 0], [shift, 0], [shift, 0]], dtype=np.float32)
+        neighbor_h = cv2.getPerspectiveTransform(court_corners, neighbor)
+        ghost = tuple(max(0, channel - 70) for channel in line_color)
+        _draw_court_lines(image, neighbor_h, ghost, max(1, thickness - 1))
+    _draw_court_lines(image, homography, line_color, thickness)
 
     # Net, players, equipment, and crop-edge clutter provide structured occlusion.
     if rng.random() < 0.85:
@@ -127,7 +159,16 @@ def render_scene(width: int, height: int, quad: np.ndarray, rng: random.Random) 
     return image, points
 
 
-def generate(dataset_dir: Path, samples: int, scenes: int, width: int, height: int, seed: int) -> dict:
+def generate(
+    dataset_dir: Path,
+    samples: int,
+    scenes: int,
+    width: int,
+    height: int,
+    seed: int,
+    hard_fraction: float = 0.35,
+    filename_prefix: str = "synthetic",
+) -> dict:
     rng = random.Random(seed)
     images_dir = dataset_dir / "images"
     annotations_dir = dataset_dir / "annotations"
@@ -136,17 +177,27 @@ def generate(dataset_dir: Path, samples: int, scenes: int, width: int, height: i
     manifest_path = dataset_dir / "manifest.json"
     manifest = json.loads(manifest_path.read_text()) if manifest_path.exists() else {"schema_version": "1.0", "items": []}
     existing = {item["image"]: item for item in manifest["items"]}
-    scene_quads = [random_quad(width, height, rng) for _ in range(scenes)]
+    modes = []
+    for scene_index in range(scenes):
+        roll = rng.random()
+        if roll < hard_fraction * 0.5:
+            modes.append("center_crop")
+        elif roll < hard_fraction:
+            modes.append("edge_neighbor")
+        else:
+            modes.append("normal")
+    scene_quads = [random_quad(width, height, rng, modes[index]) for index in range(scenes)]
     for index in range(samples):
         scene_index = index % scenes
+        mode = modes[scene_index]
         base_quad = scene_quads[scene_index]
         jitter = np.asarray([[rng.uniform(-12, 12), rng.uniform(-12, 12)] for _ in range(4)], dtype=np.float32)
-        image, points = render_scene(width, height, base_quad + jitter, rng)
-        filename = f"synthetic-s{scene_index:04d}-f{index:06d}.jpg"
+        image, points = render_scene(width, height, base_quad + jitter, rng, mode=mode)
+        filename = f"{filename_prefix}-s{scene_index:04d}-f{index:06d}.jpg"
         cv2.imwrite(str(images_dir / filename), image, [cv2.IMWRITE_JPEG_QUALITY, rng.randint(72, 96)])
         item = {
             "image": filename,
-            "source_video": f"synthetic-scene-{scene_index:04d}",
+            "source_video": f"{filename_prefix}-scene-{scene_index:04d}",
             "source_path": "synthetic://canonical-court",
             "frame_index": index,
             "timestamp_s": None,
@@ -160,12 +211,20 @@ def generate(dataset_dir: Path, samples: int, scenes: int, width: int, height: i
             "points": points,
             "complete": True,
             "synthetic": True,
+            "synthetic_mode": mode,
         }
         existing[filename] = item
         (annotations_dir / f"{Path(filename).stem}.json").write_text(json.dumps(annotation, indent=2))
     manifest["items"] = sorted(existing.values(), key=lambda item: (item["source_video"], item["frame_index"]))
     manifest_path.write_text(json.dumps(manifest, indent=2))
-    return {"generated": samples, "scenes": scenes, "dataset_items": len(manifest["items"]), "dataset": str(dataset_dir)}
+    return {
+        "generated": samples,
+        "scenes": scenes,
+        "hard_fraction": hard_fraction,
+        "dataset_items": len(manifest["items"]),
+        "dataset": str(dataset_dir),
+        "filename_prefix": filename_prefix,
+    }
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -176,10 +235,23 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--width", type=int, default=540)
     parser.add_argument("--height", type=int, default=960)
     parser.add_argument("--seed", type=int, default=17)
+    parser.add_argument("--hard-fraction", type=float, default=0.35)
+    parser.add_argument("--filename-prefix", default="synthetic")
     args = parser.parse_args(argv)
     if args.samples < 1 or args.scenes < 2 or args.scenes > args.samples:
         parser.error("require samples >= scenes >= 2")
-    result = generate(args.dataset, args.samples, args.scenes, args.width, args.height, args.seed)
+    if not 0 <= args.hard_fraction <= 1:
+        parser.error("--hard-fraction must be in [0, 1]")
+    result = generate(
+        args.dataset,
+        args.samples,
+        args.scenes,
+        args.width,
+        args.height,
+        args.seed,
+        args.hard_fraction,
+        args.filename_prefix,
+    )
     print(json.dumps(result, indent=2))
     return 0
 

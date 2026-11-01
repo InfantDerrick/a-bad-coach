@@ -79,7 +79,7 @@ class CourtTrainingTests(unittest.TestCase):
 
     def test_real_annotations_still_fit(self) -> None:
         import json
-        paths = sorted((ROOT / 'data/court_dataset/annotations').glob('bad_1*.json'))
+        paths = sorted((ROOT / 'data/court_dataset/annotations').glob('bad_1-*.json'))
         self.assertEqual(len(paths), 12)
         for path in paths:
             with self.subTest(frame=path.name):
@@ -158,6 +158,60 @@ class CourtTrainingTests(unittest.TestCase):
             points, _, _ = inference.predict(np.zeros((160, 80, 3), dtype=np.uint8), Path('unused.pt'), .55, torch.device('cpu'))
         self.assertEqual(points[LANDMARKS[0].name], [35., 50.])
         self.assertIsNone(points[LANDMARKS[1].name])
+
+    def test_subpixel_peak_and_held_out_guard(self) -> None:
+        from pipeline.court_tracking import (
+            assert_training_excludes_held_out,
+            decode_heatmap_peak_subpixel,
+            summarize_eval_for_release,
+        )
+        heatmap = np.zeros((9, 9), dtype=np.float32)
+        heatmap[4, 3] = 0.6
+        heatmap[4, 4] = 1.0
+        heatmap[4, 5] = 0.8
+        x, y, peak = decode_heatmap_peak_subpixel(heatmap)
+        self.assertGreater(x, 4.0)
+        self.assertLess(x, 5.0)
+        self.assertEqual(y, 4.0)
+        self.assertAlmostEqual(peak, 1.0)
+        with self.assertRaisesRegex(ValueError, "Held-out"):
+            assert_training_excludes_held_out(["bad_1-aaa", "bad_2-bbb"])
+        assert_training_excludes_held_out(["bad_1-aaa", "bad_3-ccc"])
+        gate = summarize_eval_for_release(
+            {
+                "results": [
+                    {
+                        "annotated_visible": 6,
+                        "visible_coverage": 0.9,
+                        "mae_source_px": 20.0,
+                        "status": "model_prediction_unverified",
+                    }
+                ]
+            }
+        )
+        self.assertTrue(gate["passed"])
+
+    def test_primary_court_and_temporal_lock(self) -> None:
+        from pipeline.court_tracking import CourtTemporalLock, select_primary_court
+        import cv2
+        points = {landmark.name: None for landmark in LANDMARKS}
+        expected = np.array([[80.0, 100.0], [520.0, 130.0], [610.0, 850.0], [20.0, 900.0]], dtype=np.float32)
+        court = np.array([[0.0, 0.0], [6.1, 0.0], [6.1, 13.4], [0.0, 13.4]], dtype=np.float32)
+        court_to_image = cv2.getPerspectiveTransform(court, expected)
+        for landmark in LANDMARKS:
+            source = np.array([[[landmark.court_x_m, landmark.court_y_m]]], dtype=np.float32)
+            point = cv2.perspectiveTransform(source, court_to_image).reshape(2)
+            if 0 <= point[0] < 700 and 0 <= point[1] < 1000:
+                points[landmark.name] = point.tolist()
+        matrix, diagnostics = select_primary_court(points, (1000, 700))
+        self.assertGreaterEqual(diagnostics["inlier_landmarks"], 4)
+        self.assertIn("score", diagnostics)
+        lock = CourtTemporalLock(min_lock_frames=2)
+        first, first_diag = lock.update(points, (1000, 700))
+        second, second_diag = lock.update(points, (1000, 700))
+        self.assertIsNotNone(first)
+        self.assertIsNotNone(second)
+        self.assertIn(second_diag["status"], {"locking", "locked", "locked_new"})
 
 
 if __name__ == "__main__":

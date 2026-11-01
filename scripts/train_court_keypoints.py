@@ -24,6 +24,11 @@ from torch.utils.data import DataLoader, Dataset
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 from pipeline.court_keypoints import LANDMARKS, validate_annotation  # noqa: E402
+from pipeline.court_tracking import (  # noqa: E402
+    DEFAULT_HELD_OUT_SOURCE_PREFIXES,
+    assert_training_excludes_held_out,
+    decode_heatmap_peak_subpixel,
+)
 
 
 def choose_device(requested: str) -> torch.device:
@@ -192,24 +197,36 @@ class CourtKeypointNet(nn.Module):
         return self.head(features)
 
 
-def weighted_heatmap_loss(logits: torch.Tensor, targets: torch.Tensor) -> torch.Tensor:
-    weights = 1.0 + targets * 40.0
+def weighted_heatmap_loss(
+    logits: torch.Tensor,
+    targets: torch.Tensor,
+    visibility: torch.Tensor | None = None,
+) -> torch.Tensor:
+    """Peak-weighted BCE; invisible channels keep empty-map pressure so outers stay quiet."""
+    peak_weights = 1.0 + targets * 40.0
+    if visibility is None:
+        weights = peak_weights
+    else:
+        invisible = (visibility < 0.5).float().view(visibility.shape[0], visibility.shape[1], 1, 1)
+        weights = peak_weights * (1.0 + invisible * 0.75)
     return nn.functional.binary_cross_entropy_with_logits(logits, targets, weight=weights)
 
 
 @torch.no_grad()
 def keypoint_error(logits: torch.Tensor, points: torch.Tensor, visibility: torch.Tensor, output_stride: int) -> tuple[float, int]:
-    batch, channels, height, width = logits.shape
-    flattened = torch.sigmoid(logits).reshape(batch, channels, -1)
-    indices = flattened.argmax(dim=-1)
-    predicted_y = torch.div(indices, width, rounding_mode="floor").float()
-    predicted_x = (indices % width).float()
-    predicted = torch.stack((predicted_x, predicted_y), dim=-1)
-    mask = visibility.bool()
-    if not mask.any():
-        return 0.0, 0
-    error = torch.linalg.vector_norm(predicted[mask] - points[mask], dim=-1) * output_stride
-    return float(error.sum().item()), int(mask.sum().item())
+    probabilities = torch.sigmoid(logits).cpu().numpy()
+    total = 0.0
+    count = 0
+    for batch_index in range(probabilities.shape[0]):
+        for channel in range(probabilities.shape[1]):
+            if float(visibility[batch_index, channel]) < 0.5:
+                continue
+            x_heat, y_heat, _ = decode_heatmap_peak_subpixel(probabilities[batch_index, channel])
+            target = points[batch_index, channel].cpu().numpy()
+            error = float(np.hypot(x_heat - float(target[0]), y_heat - float(target[1]))) * output_stride
+            total += error
+            count += 1
+    return total, count
 
 
 def run_epoch(
@@ -218,6 +235,8 @@ def run_epoch(
     device: torch.device,
     output_stride: int,
     optimizer: torch.optim.Optimizer | None,
+    scaler: torch.amp.GradScaler | None,
+    use_amp: bool,
 ) -> dict[str, float]:
     training = optimizer is not None
     model.train(training)
@@ -231,11 +250,21 @@ def run_epoch(
         if training:
             optimizer.zero_grad(set_to_none=True)
         with torch.set_grad_enabled(training):
-            logits = model(images)
-            loss = weighted_heatmap_loss(logits, heatmaps)
-            if training:
-                loss.backward()
-                optimizer.step()
+            if use_amp and device.type == "cuda":
+                with torch.autocast(device_type="cuda", dtype=torch.float16):
+                    logits = model(images)
+                    loss = weighted_heatmap_loss(logits, heatmaps, visibility)
+                if training:
+                    assert scaler is not None
+                    scaler.scale(loss).backward()
+                    scaler.step(optimizer)
+                    scaler.update()
+            else:
+                logits = model(images)
+                loss = weighted_heatmap_loss(logits, heatmaps, visibility)
+                if training:
+                    loss.backward()
+                    optimizer.step()
         error_sum, count = keypoint_error(logits.detach(), points, visibility, output_stride)
         total_loss += float(loss.item())
         total_error += error_sum
@@ -254,12 +283,22 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--epochs", type=int, default=40)
     parser.add_argument("--batch-size", type=int, default=4)
     parser.add_argument("--learning-rate", type=float, default=3e-4)
-    parser.add_argument("--input-width", type=int, default=288)
-    parser.add_argument("--input-height", type=int, default=512)
+    parser.add_argument("--input-width", type=int, default=384)
+    parser.add_argument("--input-height", type=int, default=672)
     parser.add_argument("--validation-fraction", type=float, default=0.2)
     parser.add_argument("--seed", type=int, default=7)
     parser.add_argument("--device", default="auto")
     parser.add_argument("--allow-frame-split", action="store_true")
+    parser.add_argument("--resume", type=Path, default=None, help="Resume optimizer/model from a prior checkpoint")
+    parser.add_argument("--early-stopping-patience", type=int, default=12)
+    parser.add_argument("--amp", action="store_true", help="Enable CUDA automatic mixed precision")
+    parser.add_argument("--workers", type=int, default=0)
+    parser.add_argument(
+        "--held-out-prefix",
+        action="append",
+        default=list(DEFAULT_HELD_OUT_SOURCE_PREFIXES),
+        help="Source-video prefixes forbidden in training (repeatable)",
+    )
     args = parser.parse_args(argv)
     if args.input_width % 4 or args.input_height % 4:
         parser.error("input dimensions must be divisible by four")
@@ -270,6 +309,10 @@ def main(argv: list[str] | None = None) -> int:
         items = load_items(args.dataset)
         if len(items) < 8:
             raise ValueError(f"Need at least 8 completed annotations; found {len(items)}")
+        assert_training_excludes_held_out(
+            [item["source_video"] for item in items],
+            tuple(args.held_out_prefix),
+        )
         train_items, validation_items = split_items(items, args.validation_fraction, args.seed, args.allow_frame_split)
     except (OSError, json.JSONDecodeError, KeyError, ValueError) as exc:
         print(f"Dataset error: {exc}", file=sys.stderr)
@@ -278,26 +321,53 @@ def main(argv: list[str] | None = None) -> int:
     output_stride = 4
     train_dataset = CourtKeypointDataset(args.dataset, train_items, args.input_width, args.input_height, output_stride, True)
     validation_dataset = CourtKeypointDataset(args.dataset, validation_items, args.input_width, args.input_height, output_stride, False)
-    train_loader = DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True, num_workers=0)
-    validation_loader = DataLoader(validation_dataset, batch_size=args.batch_size, shuffle=False, num_workers=0)
+    train_loader = DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True, num_workers=args.workers)
+    validation_loader = DataLoader(validation_dataset, batch_size=args.batch_size, shuffle=False, num_workers=args.workers)
     device = choose_device(args.device)
+    if device.type == "cpu":
+        print(json.dumps({"warning": "Training on CPU; prefer --device mps or cuda when available"}), flush=True)
+    elif device.type == "mps":
+        print(json.dumps({"device": "mps", "note": "Apple Metal backend selected"}), flush=True)
+    else:
+        print(json.dumps({"device": str(device), "gpu": torch.cuda.get_device_name(device) if device.type == "cuda" else None}), flush=True)
+
     model = CourtKeypointNet().to(device)
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.learning_rate, weight_decay=1e-4)
-
-    args.output.parent.mkdir(parents=True, exist_ok=True)
+    use_amp = bool(args.amp and device.type == "cuda")
+    scaler = torch.amp.GradScaler("cuda") if use_amp else None
+    start_epoch = 1
     best_error = math.inf
     history: list[dict[str, Any]] = []
-    for epoch in range(1, args.epochs + 1):
-        train_metrics = run_epoch(model, train_loader, device, output_stride, optimizer)
-        validation_metrics = run_epoch(model, validation_loader, device, output_stride, None)
+    if args.resume is not None:
+        resume_payload = torch.load(args.resume, map_location=device, weights_only=False)
+        model.load_state_dict(resume_payload["model_state"])
+        if "optimizer_state" in resume_payload:
+            optimizer.load_state_dict(resume_payload["optimizer_state"])
+        start_epoch = int(resume_payload.get("epoch", 0)) + 1
+        best_error = float(resume_payload.get("validation_mae_input_px", best_error))
+        history = list(resume_payload.get("history", []))
+        print(json.dumps({"resumed_from": str(args.resume), "next_epoch": start_epoch, "best_error": best_error}), flush=True)
+
+    args.output.parent.mkdir(parents=True, exist_ok=True)
+    epochs_without_improvement = 0
+    final_epoch = start_epoch - 1
+    for epoch in range(start_epoch, args.epochs + 1):
+        final_epoch = epoch
+        train_metrics = run_epoch(model, train_loader, device, output_stride, optimizer, scaler, use_amp)
+        validation_metrics = run_epoch(model, validation_loader, device, output_stride, None, None, use_amp)
         row = {"epoch": epoch, "train": train_metrics, "validation": validation_metrics}
         history.append(row)
-        print(json.dumps(row))
-        if validation_metrics["visible_keypoint_mae_input_px"] < best_error:
+        print(json.dumps(row), flush=True)
+        improved = validation_metrics["visible_keypoint_mae_input_px"] < best_error
+        if improved:
             best_error = validation_metrics["visible_keypoint_mae_input_px"]
+            epochs_without_improvement = 0
             torch.save(
                 {
                     "model_state": model.state_dict(),
+                    "optimizer_state": optimizer.state_dict(),
+                    "epoch": epoch,
+                    "history": history,
                     "landmarks": [landmark.name for landmark in LANDMARKS],
                     "input_width": args.input_width,
                     "input_height": args.input_height,
@@ -308,9 +378,27 @@ def main(argv: list[str] | None = None) -> int:
                 },
                 args.output,
             )
+        else:
+            epochs_without_improvement += 1
+            if args.early_stopping_patience > 0 and epochs_without_improvement >= args.early_stopping_patience:
+                print(json.dumps({"early_stopping": True, "patience": args.early_stopping_patience, "epoch": epoch}), flush=True)
+                break
     history_path = args.output.with_suffix(".history.json")
     history_path.write_text(json.dumps(history, indent=2))
-    print(json.dumps({"checkpoint": str(args.output), "best_validation_mae_input_px": best_error, "device": str(device)}, indent=2))
+    print(
+        json.dumps(
+            {
+                "checkpoint": str(args.output),
+                "best_validation_mae_input_px": best_error,
+                "device": str(device),
+                "epochs_run": final_epoch,
+                "input_width": args.input_width,
+                "input_height": args.input_height,
+            },
+            indent=2,
+        ),
+        flush=True,
+    )
     return 0
 
 

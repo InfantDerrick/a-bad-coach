@@ -47,11 +47,21 @@ python scripts/generate_synthetic_courts.py \
 python scripts/train_court_keypoints.py \
   --dataset data/court_dataset \
   --output data/models/court_keypoints.pt \
-  --epochs 50 \
-  --batch-size 4
+  --epochs 40 \
+  --batch-size 8 \
+  --device mps
 ```
 
-The default split is grouped by source video. Training refuses to make a normal validation split from only one real video. `--allow-frame-split` exists solely for plumbing checks and must not be used for accuracy claims.
+Defaults are 384×672 input with subpixel peak metrics, early stopping, optional `--resume` / `--amp` (CUDA) / `--workers`. Held-out prefixes from `data/held_out_sources.json` (`bad_2`) are refused. The default split is grouped by source video. `--allow-frame-split` exists solely for plumbing checks and must not be used for accuracy claims.
+
+Harder synthetic (center crops + edge-neighbor ghosts):
+
+```bash
+python scripts/generate_synthetic_courts.py \
+  --dataset data/court_dataset \
+  --samples 240 --scenes 40 --hard-fraction 0.5 \
+  --filename-prefix synthetic-hard --seed 23
+```
 
 ## Predict and fit the full court
 
@@ -60,9 +70,14 @@ python scripts/infer_court_keypoints.py data/raw/bad_1.MOV \
   --checkpoint data/models/court_keypoints.pt \
   --frame-index 0 \
   --output-dir data/processed/court_prediction
+
+python scripts/infer_court_video.py data/raw/bad_1.MOV \
+  --checkpoint data/models/court_keypoints.pt \
+  --stride 30 \
+  --output-dir data/processed/court_video_bad1
 ```
 
-The prediction contains visible keypoint confidence, RANSAC inliers, reprojection error, a calibration file, and an overlay whose outer boundary may extend beyond the image.
+Single-frame inference selects a primary court hypothesis when edge landmarks are ambiguous. Video inference adds temporal lock so the court does not flicker every frame. Calibrations remain `model_prediction_unverified` until manually verified; movement metrics stay gated.
 
 ## Release requirements
 
@@ -78,10 +93,14 @@ The fitter conservatively rejects duplicate/near-duplicate image locations (with
 
 Compare predictions against labeled images separately from the model's internal fit residuals:
 
-```powershell
-.venv/Scripts/python.exe scripts/evaluate_court_keypoints.py --dataset data/court_dataset --annotation-glob 'bad_1*.json' --checkpoint data/models/court_keypoints_5080.pt --device cuda --output data/processed/court_prediction_5080/real_evaluation.json
+```bash
+python scripts/evaluate_court_keypoints.py \
+  --dataset data/court_eval_bad2 --annotation-glob '*.json' \
+  --checkpoint data/models/court_keypoints.pt --device mps \
+  --output data/processed/bad2_evaluation.json \
+  --paired-held-out-output data/processed/bad2_release_gate.json
 ```
 
-The report includes per-landmark source-pixel error, mean error normalized by image diagonal, visible-point coverage, missed visible points, predictions on invisible points, fit diagnostics, and abstention rate. Missing predictions reduce coverage and are not treated as zero error. A successful evaluator exit means the report was produced, not that predictions passed accuracy checks.
+The report includes per-landmark source-pixel error, mean error normalized by image diagonal, visible-point coverage, missed visible points, predictions on invisible points, fit diagnostics, abstention rate, and a `release_gate` block. Missing predictions reduce coverage and are not treated as zero error. A successful evaluator exit means the report was produced, not that predictions passed accuracy checks.
 
 The RTX 5080 baseline abstains on all 12 real frames at confidence 0.55. Frame 0 still has 475.77 px average matched-landmark error. Eleven manual annotation fits pass; frame 144 abstains because extrapolating its fit to the full court crosses the projective horizon, despite a small visible-point residual. Revisit that fit before using it for complete court calibration. These real frames are in training, so this evaluation does not establish generalization.

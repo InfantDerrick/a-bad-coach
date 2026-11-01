@@ -1,0 +1,442 @@
+[
+  {
+    "epoch": 1,
+    "train": {
+      "loss": 0.3943047760562463,
+      "visible_keypoint_mae_input_px": 237.17815336221122
+    },
+    "validation": {
+      "loss": 0.18249928454558054,
+      "visible_keypoint_mae_input_px": 305.39962469362746
+    }
+  },
+  {
+    "epoch": 2,
+    "train": {
+      "loss": 0.10812536017461256,
+      "visible_keypoint_mae_input_px": 223.46084113294143
+    },
+    "validation": {
+      "loss": 0.0865560087064902,
+      "visible_keypoint_mae_input_px": 145.70557598039215
+    }
+  },
+  {
+    "epoch": 3,
+    "train": {
+      "loss": 0.07948400723663243,
+      "visible_keypoint_mae_input_px": 142.53518783518976
+    },
+    "validation": {
+      "loss": 0.07040377457936604,
+      "visible_keypoint_mae_input_px": 121.69917908569678
+    }
+  },
+  {
+    "epoch": 4,
+    "train": {
+      "loss": 0.07187427851286801,
+      "visible_keypoint_mae_input_px": 132.03274932962046
+    },
+    "validation": {
+      "loss": 0.06880372265974681,
+      "visible_keypoint_mae_input_px": 142.1056260394783
+    }
+  },
+  {
+    "epoch": 5,
+    "train": {
+      "loss": 0.067850214344534,
+      "visible_keypoint_mae_input_px": 125.06045115253713
+    },
+    "validation": {
+      "loss": 0.0645654300848643,
+      "visible_keypoint_mae_input_px": 125.48028547356442
+    }
+  },
+  {
+    "epoch": 6,
+    "train": {
+      "loss": 0.06535329229452393,
+      "visible_keypoint_mae_input_px": 119.6596615227929
+    },
+    "validation": {
+      "loss": 0.06654540325204532,
+      "visible_keypoint_mae_input_px": 139.59365699404762
+    }
+  },
+  {
+    "epoch": 7,
+    "train": {
+      "loss": 0.060638570142063225,
+      "visible_keypoint_mae_input_px": 122.22483272741337
+    },
+    "validation": {
+      "loss": 0.06103424417475859,
+      "visible_keypoint_mae_input_px": 119.5370437237395
+    }
+  },
+  {
+    "epoch": 8,
+    "train": {
+      "loss": 0.059014477343721825,
+      "visible_keypoint_mae_input_px": 111.77183406817244
+    },
+    "validation": {
+      "loss": 0.05997784994542599,
+      "visible_keypoint_mae_input_px": 126.52099609375
+    }
+  },
+  {
+    "epoch": 9,
+    "train": {
+      "loss": 0.0561597640202804,
+      "visible_keypoint_mae_input_px": 103.18009939665842
+    },
+    "validation": {
+      "loss": 0.06230727955698967,
+      "visible_keypoint_mae_input_px": 125.37636499912465
+    }
+  },
+  {
+    "epoch": 10,
+    "train": {
+      "loss": 0.053932824256745254,
+      "visible_keypoint_mae_input_px": 94.90764748349835
+    },
+    "validation": {
+      "loss": 0.06030850733319918,
+      "visible_keypoint_mae_input_px": 118.9818652070203
+    }
+  },
+  {
+    "epoch": 11,
+    "train": {
+      "loss": 0.05152389491823586,
+      "visible_keypoint_mae_input_px": 86.15256162334984
+    },
+    "validation": {
+      "loss": 0.05644174478948116,
+      "visible_keypoint_mae_input_px": 114.136806285014
+    }
+  },
+  {
+    "epoch": 12,
+    "train": {
+      "loss": 0.04943900572305376,
+      "visible_keypoint_mae_input_px": 72.09806298989274
+    },
+    "validation": {
+      "loss": 0.05345469464858373,
+      "visible_keypoint_mae_input_px": 104.6395827862395
+    }
+  },
+  {
+    "epoch": 13,
+    "train": {
+      "loss": 0.04676825282248584,
+      "visible_keypoint_mae_input_px": 61.27045560024752
+    },
+    "validation": {
+      "loss": 0.0547313808153073,
+      "visible_keypoint_mae_input_px": 88.64236886160714
+    }
+  },
+  {
+    "epoch": 14,
+    "train": {
+      "loss": 0.04466740990226919,
+      "visible_keypoint_mae_input_px": 55.983569899958745
+    },
+    "validation": {
+      "loss": 0.05716636156042417,
+      "visible_keypoint_mae_input_px": 87.55684168198529
+    }
+  },
+  {
+    "epoch": 15,
+    "train": {
+      "loss": 0.0420900114219297,
+      "visible_keypoint_mae_input_px": 52.307714118579824
+    },
+    "validation": {
+      "loss": 0.05250673554837704,
+      "visible_keypoint_mae_input_px": 90.73487969406513
+    }
+  },
+  {
+    "epoch": 16,
+    "train": {
+      "loss": 0.03964070857248523,
+      "visible_keypoint_mae_input_px": 48.120873056543935
+    },
+    "validation": {
+      "loss": 0.0583624504506588,
+      "visible_keypoint_mae_input_px": 79.99776033460259
+    }
+  },
+  {
+    "epoch": 17,
+    "train": {
+      "loss": 0.039139304479414765,
+      "visible_keypoint_mae_input_px": 48.38851926696576
+    },
+    "validation": {
+      "loss": 0.05727213869492213,
+      "visible_keypoint_mae_input_px": 84.4796918767507
+    }
+  },
+  {
+    "epoch": 18,
+    "train": {
+      "loss": 0.0384502038359642,
+      "visible_keypoint_mae_input_px": 45.63053852748556
+    },
+    "validation": {
+      "loss": 0.05124426446855068,
+      "visible_keypoint_mae_input_px": 78.36726956407563
+    }
+  },
+  {
+    "epoch": 19,
+    "train": {
+      "loss": 0.03744995069097389,
+      "visible_keypoint_mae_input_px": 41.58143274288366
+    },
+    "validation": {
+      "loss": 0.050132596865296364,
+      "visible_keypoint_mae_input_px": 73.86161603313201
+    }
+  },
+  {
+    "epoch": 20,
+    "train": {
+      "loss": 0.036670956421982155,
+      "visible_keypoint_mae_input_px": 38.15878229424505
+    },
+    "validation": {
+      "loss": 0.0497765988111496,
+      "visible_keypoint_mae_input_px": 79.57252275910363
+    }
+  },
+  {
+    "epoch": 21,
+    "train": {
+      "loss": 0.03564484408971938,
+      "visible_keypoint_mae_input_px": 36.50925574979373
+    },
+    "validation": {
+      "loss": 0.04688686008254687,
+      "visible_keypoint_mae_input_px": 65.92405722054447
+    }
+  },
+  {
+    "epoch": 22,
+    "train": {
+      "loss": 0.03469906307079575,
+      "visible_keypoint_mae_input_px": 35.31155333062603
+    },
+    "validation": {
+      "loss": 0.047692125042279564,
+      "visible_keypoint_mae_input_px": 65.77875798757003
+    }
+  },
+  {
+    "epoch": 23,
+    "train": {
+      "loss": 0.033866476860236035,
+      "visible_keypoint_mae_input_px": 32.81971608781972
+    },
+    "validation": {
+      "loss": 0.048260148614645004,
+      "visible_keypoint_mae_input_px": 67.75003077402836
+    }
+  },
+  {
+    "epoch": 24,
+    "train": {
+      "loss": 0.0337264190681956,
+      "visible_keypoint_mae_input_px": 31.67103509179043
+    },
+    "validation": {
+      "loss": 0.04760907590389252,
+      "visible_keypoint_mae_input_px": 71.06885928199405
+    }
+  },
+  {
+    "epoch": 25,
+    "train": {
+      "loss": 0.03298619897528128,
+      "visible_keypoint_mae_input_px": 30.21770237082302
+    },
+    "validation": {
+      "loss": 0.04753487681349119,
+      "visible_keypoint_mae_input_px": 69.8749781162465
+    }
+  },
+  {
+    "epoch": 26,
+    "train": {
+      "loss": 0.03243303053419699,
+      "visible_keypoint_mae_input_px": 29.061803433761344
+    },
+    "validation": {
+      "loss": 0.05163400433957577,
+      "visible_keypoint_mae_input_px": 74.16695457479867
+    }
+  },
+  {
+    "epoch": 27,
+    "train": {
+      "loss": 0.031915403733199295,
+      "visible_keypoint_mae_input_px": 28.241619812616026
+    },
+    "validation": {
+      "loss": 0.049537085617582,
+      "visible_keypoint_mae_input_px": 68.65947033110119
+    }
+  },
+  {
+    "epoch": 28,
+    "train": {
+      "loss": 0.03193004251542417,
+      "visible_keypoint_mae_input_px": 28.010552233201835
+    },
+    "validation": {
+      "loss": 0.04967381929357847,
+      "visible_keypoint_mae_input_px": 70.97402193299195
+    }
+  },
+  {
+    "epoch": 29,
+    "train": {
+      "loss": 0.03128402874889699,
+      "visible_keypoint_mae_input_px": 25.2799397383586
+    },
+    "validation": {
+      "loss": 0.05189067994554838,
+      "visible_keypoint_mae_input_px": 68.61125631893383
+    }
+  },
+  {
+    "epoch": 30,
+    "train": {
+      "loss": 0.03094852241602811,
+      "visible_keypoint_mae_input_px": 25.221769930899338
+    },
+    "validation": {
+      "loss": 0.051136121774713196,
+      "visible_keypoint_mae_input_px": 70.82616708792892
+    }
+  },
+  {
+    "epoch": 31,
+    "train": {
+      "loss": 0.031210656616498123,
+      "visible_keypoint_mae_input_px": 26.34329942759901
+    },
+    "validation": {
+      "loss": 0.05063208689292272,
+      "visible_keypoint_mae_input_px": 70.46255416228992
+    }
+  },
+  {
+    "epoch": 32,
+    "train": {
+      "loss": 0.03137717582285404,
+      "visible_keypoint_mae_input_px": 26.91920431911355
+    },
+    "validation": {
+      "loss": 0.0503063170860211,
+      "visible_keypoint_mae_input_px": 74.03997751444328
+    }
+  },
+  {
+    "epoch": 33,
+    "train": {
+      "loss": 0.03120292325250127,
+      "visible_keypoint_mae_input_px": 26.550698701461943
+    },
+    "validation": {
+      "loss": 0.052364458640416466,
+      "visible_keypoint_mae_input_px": 75.99120546656162
+    }
+  },
+  {
+    "epoch": 34,
+    "train": {
+      "loss": 0.030395501462573356,
+      "visible_keypoint_mae_input_px": 23.705824607118917
+    },
+    "validation": {
+      "loss": 0.04499960131943226,
+      "visible_keypoint_mae_input_px": 70.71230797006302
+    }
+  },
+  {
+    "epoch": 35,
+    "train": {
+      "loss": 0.03030547567389228,
+      "visible_keypoint_mae_input_px": 23.84554523933839
+    },
+    "validation": {
+      "loss": 0.056496317187945046,
+      "visible_keypoint_mae_input_px": 66.0979010744923
+    }
+  },
+  {
+    "epoch": 36,
+    "train": {
+      "loss": 0.03000209480524063,
+      "visible_keypoint_mae_input_px": 22.587120312983448
+    },
+    "validation": {
+      "loss": 0.05291843538482984,
+      "visible_keypoint_mae_input_px": 68.51306391697304
+    }
+  },
+  {
+    "epoch": 37,
+    "train": {
+      "loss": 0.0298254026777365,
+      "visible_keypoint_mae_input_px": 22.79480048957044
+    },
+    "validation": {
+      "loss": 0.047612942134340606,
+      "visible_keypoint_mae_input_px": 69.6647716703869
+    }
+  },
+  {
+    "epoch": 38,
+    "train": {
+      "loss": 0.03029146096245809,
+      "visible_keypoint_mae_input_px": 24.73711263826578
+    },
+    "validation": {
+      "loss": 0.04669711428383986,
+      "visible_keypoint_mae_input_px": 70.34853707107843
+    }
+  },
+  {
+    "epoch": 39,
+    "train": {
+      "loss": 0.029557525942271404,
+      "visible_keypoint_mae_input_px": 21.899036974009903
+    },
+    "validation": {
+      "loss": 0.046037665878733,
+      "visible_keypoint_mae_input_px": 67.08687166272759
+    }
+  },
+  {
+    "epoch": 40,
+    "train": {
+      "loss": 0.029470870609987865,
+      "visible_keypoint_mae_input_px": 21.1238286285904
+    },
+    "validation": {
+      "loss": 0.047587708259622254,
+      "visible_keypoint_mae_input_px": 69.57545860140931
+    }
+  }
+]

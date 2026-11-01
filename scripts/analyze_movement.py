@@ -153,6 +153,14 @@ def load_calibration(path: Path) -> Calibration:
 
     notes = [str(note) for note in payload.get("notes", [])]
     status = str(payload.get("status", "unverified"))
+    # Model-produced calibrations are never treated as verified movement ground truth.
+    if status in {"model_prediction_unverified", "unverified", "diagnostic"}:
+        notes.append("Calibration is not verified; movement metrics stay diagnostic-only.")
+        if status == "model_prediction_unverified":
+            status = "provisional"
+    if payload.get("metrics_trustworthy") is False and status == "verified":
+        notes.append("metrics_trustworthy=false overrides verified status to provisional.")
+        status = "provisional"
     spans_full_width = float(np.ptp(court_points[:, 0])) >= COURT_WIDTH_M * 0.95
     spans_full_length = float(np.ptp(court_points[:, 1])) >= COURT_LENGTH_M * 0.95
     if not spans_full_width or not spans_full_length:
