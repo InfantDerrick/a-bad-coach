@@ -1,0 +1,55 @@
+{
+  "image": "bad_5-40a59bfce8-f000826.jpg",
+  "source_video": "bad_5-40a59bfce8",
+  "source_path": "data/raw/bad_5.mp4",
+  "frame_index": 826,
+  "timestamp_s": 13.766667,
+  "width": 1080,
+  "height": 1920,
+  "annotated": false,
+  "image_width": 1080,
+  "image_height": 1920,
+  "points": {
+    "far_baseline_left": [
+      237.77166632468789,
+      811.0396767752279
+    ],
+    "far_baseline_right": [
+      889.7825509181324,
+      807.2319787621988
+    ],
+    "far_long_service_left": [
+      228.2671344793024,
+      826.2704688273449
+    ],
+    "far_long_service_right": [
+      904.9898018707493,
+      818.6550728012865
+    ],
+    "far_short_service_left": [
+      104.70822048929105,
+      904.3282780944443
+    ],
+    "far_short_service_center": [
+      568.5293745441029,
+      900.5205800814151
+    ],
+    "far_short_service_right": [
+      1036.152341337069,
+      894.8090330618712
+    ],
+    "net_left": null,
+    "net_right": null,
+    "near_short_service_left": null,
+    "near_short_service_center": [
+      564.7275618059487,
+      1081.386235700304
+    ],
+    "near_short_service_right": null,
+    "near_long_service_left": null,
+    "near_long_service_right": null,
+    "near_baseline_left": null,
+    "near_baseline_right": null
+  },
+  "complete": true
+}
