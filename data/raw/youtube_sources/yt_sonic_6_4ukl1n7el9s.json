@@ -1,0 +1,33 @@
+{
+  "downloaded_at": "2026-11-01T11:40:24.451477+00:00",
+  "url": "https://www.youtube.com/watch?v=4Ukl1N7EL9s",
+  "youtube_id": "4Ukl1N7EL9s",
+  "title": "2026 NE Birdies - Naresh vs Arush",
+  "channel": "Infant Derrick Gnana Susai Raj",
+  "duration_s": 1445,
+  "webpage_url": "https://www.youtube.com/watch?v=4Ukl1N7EL9s",
+  "usage_rights": "fair_use_review_needed",
+  "local_video": "data/raw/yt_sonic_6_4ukl1n7el9s.mp4",
+  "dataset": "data/court_dataset",
+  "source_video": "yt_sonic_6_4ukl1n7el9s-5d0498d907",
+  "sample_mode": "random",
+  "frame_count_requested": 12,
+  "frame_indices": [
+    16218,
+    24002,
+    26223,
+    31278,
+    31494,
+    34972,
+    36447,
+    37154,
+    40883,
+    45045,
+    45556,
+    76575
+  ],
+  "notes": [
+    "Frames are for offline court-keypoint annotation.",
+    "Do not claim commercial/pro-trained rights without recorded permission."
+  ]
+}

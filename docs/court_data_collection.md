@@ -29,6 +29,21 @@ Never train on held-out prefixes listed in `data/held_out_sources.json`. The tra
 
 Prefer your own gym footage for core training. Pro/broadcast clips need recorded provenance/usage rights.
 
+### YouTube → random training frames
+
+```bash
+python -m pip install yt-dlp
+python scripts/prepare_youtube_court_frames.py \
+  'https://www.youtube.com/watch?v=VIDEO_ID' \
+  --name my_gym_clip \
+  --count 12 \
+  --mode random \
+  --usage-rights own_upload
+python scripts/court_annotation_server.py --dataset data/court_dataset
+```
+
+This downloads into `data/raw/`, writes provenance to `data/raw/youtube_sources/`, and appends sampled JPEGs to `data/court_dataset` for labeling. Use `--mode uniform` for evenly spaced frames. Only use videos you have rights to train on.
+
 ## Labeling rule
 
 Click only exact visible named intersections. Mark everything else Not visible. Never extrapolate by hand — the fitter completes off-screen edges from the 6.10×13.40 m template.

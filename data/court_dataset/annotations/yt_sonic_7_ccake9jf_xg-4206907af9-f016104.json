@@ -1,0 +1,83 @@
+{
+  "image": "yt_sonic_7_ccake9jf_xg-4206907af9-f016104.jpg",
+  "source_video": "yt_sonic_7_ccake9jf_xg-4206907af9",
+  "source_path": "data/raw/yt_sonic_7_ccake9jf_xg.mp4",
+  "frame_index": 16104,
+  "timestamp_s": 268.668669,
+  "width": 1280,
+  "height": 720,
+  "youtube_url": "https://www.youtube.com/watch?v=CcakE9jf_xg",
+  "youtube_id": "CcakE9jf_xg",
+  "youtube_title": "2026 Sonic Smash - Derrick/Sourish vs Gagan/Mikey",
+  "usage_rights": "fair_use_review_needed",
+  "annotated": false,
+  "image_width": 1280,
+  "image_height": 720,
+  "points": {
+    "far_baseline_left": [
+      754.820592823713,
+      306.8975069252078
+    ],
+    "far_baseline_right": [
+      1013.4165366614665,
+      320.85872576177286
+    ],
+    "far_long_service_left": [
+      741.8408736349454,
+      309.8891966759003
+    ],
+    "far_long_service_right": [
+      1008.424336973479,
+      324.8476454293629
+    ],
+    "far_short_service_left": [
+      663.9625585023401,
+      321.85595567867034
+    ],
+    "far_short_service_center": [
+      804.7425897035881,
+      331.82825484764544
+    ],
+    "far_short_service_right": [
+      991.4508580343214,
+      342.797783933518
+    ],
+    "net_left": [
+      581.0920436817473,
+      331.82825484764544
+    ],
+    "net_right": [
+      971.4820592823713,
+      356.7590027700831
+    ],
+    "near_short_service_left": [
+      532.1684867394696,
+      340.803324099723
+    ],
+    "near_short_service_center": [
+      695.9126365054602,
+      357.75623268698064
+    ],
+    "near_short_service_right": [
+      948.5179407176288,
+      385.6786703601108
+    ],
+    "near_long_service_left": [
+      267.5819032761311,
+      379.6952908587258
+    ],
+    "near_long_service_right": [
+      828.7051482059283,
+      511.3296398891967
+    ],
+    "near_baseline_left": [
+      183.71294851794073,
+      392.65927977839334
+    ],
+    "near_baseline_right": [
+      776.7862714508581,
+      577.1468144044321
+    ]
+  },
+  "complete": true
+}

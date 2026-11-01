@@ -1,0 +1,33 @@
+{
+  "downloaded_at": "2026-11-01T11:35:09.365255+00:00",
+  "url": "https://www.youtube.com/watch?v=TGqC2UgSfXc",
+  "youtube_id": "TGqC2UgSfXc",
+  "title": "Sonic Smash WA 2026 - MS FINAL - Sittichai Viboonsin vs Gagan Balyan",
+  "channel": "Vannie Boy",
+  "duration_s": 2890,
+  "webpage_url": "https://www.youtube.com/watch?v=TGqC2UgSfXc",
+  "usage_rights": "fair_use_review_needed",
+  "local_video": "data/raw/yt_sonic_3_tgqc2ugsfxc.mp4",
+  "dataset": "data/court_dataset",
+  "source_video": "yt_sonic_3_tgqc2ugsfxc-76a6bf0906",
+  "sample_mode": "random",
+  "frame_count_requested": 12,
+  "frame_indices": [
+    17745,
+    22398,
+    22875,
+    55860,
+    67884,
+    86607,
+    126287,
+    135119,
+    140357,
+    142329,
+    142647,
+    150347
+  ],
+  "notes": [
+    "Frames are for offline court-keypoint annotation.",
+    "Do not claim commercial/pro-trained rights without recorded permission."
+  ]
+}

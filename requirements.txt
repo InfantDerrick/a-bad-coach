@@ -8,3 +8,4 @@ mediapipe>=0.10.0
 torch>=2.0.0
 ultralytics>=8.0.0
 certifi>=2024.0.0
+yt-dlp>=2024.0.0

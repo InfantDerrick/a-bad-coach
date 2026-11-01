@@ -1,0 +1,33 @@
+{
+  "downloaded_at": "2026-11-01T11:31:21.405214+00:00",
+  "url": "https://www.youtube.com/watch?v=JRyX-38frAo",
+  "youtube_id": "JRyX-38frAo",
+  "title": "Sonic Smash WA 2026 - AXD SF - Sittichai Viboonsin/Natalie Chi vs Mitchell Purnomo/Ella Zhou",
+  "channel": "Vannie Boy",
+  "duration_s": 1267,
+  "webpage_url": "https://www.youtube.com/watch?v=JRyX-38frAo",
+  "usage_rights": "fair_use_review_needed",
+  "local_video": "data/raw/yt_sonic_1_jryx-38frao.mp4",
+  "dataset": "data/court_dataset",
+  "source_video": "yt_sonic_1_jryx-38frao-0091e5649f",
+  "sample_mode": "random",
+  "frame_count_requested": 12,
+  "frame_indices": [
+    8944,
+    11657,
+    14354,
+    15043,
+    18731,
+    20932,
+    22291,
+    30350,
+    30675,
+    52265,
+    59242,
+    69139
+  ],
+  "notes": [
+    "Frames are for offline court-keypoint annotation.",
+    "Do not claim commercial/pro-trained rights without recorded permission."
+  ]
+}

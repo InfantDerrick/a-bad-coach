@@ -1,0 +1,74 @@
+{
+  "image": "yt_sonic_1_jryx-38frao-0091e5649f-f011657.jpg",
+  "source_video": "yt_sonic_1_jryx-38frao-0091e5649f",
+  "source_path": "data/raw/yt_sonic_1_jryx-38frao.mp4",
+  "frame_index": 11657,
+  "timestamp_s": 194.477617,
+  "width": 1920,
+  "height": 1080,
+  "youtube_url": "https://www.youtube.com/watch?v=JRyX-38frAo",
+  "youtube_id": "JRyX-38frAo",
+  "youtube_title": "Sonic Smash WA 2026 - AXD SF - Sittichai Viboonsin/Natalie Chi vs Mitchell Purnomo/Ella Zhou",
+  "usage_rights": "fair_use_review_needed",
+  "annotated": false,
+  "image_width": 1920,
+  "image_height": 1080,
+  "points": {
+    "far_baseline_left": [
+      180.42553191489364,
+      565.7916833889204
+    ],
+    "far_baseline_right": [
+      664.9645390070923,
+      555.5883869137408
+    ],
+    "far_long_service_left": [
+      183.82978723404256,
+      573.7275806473933
+    ],
+    "far_long_service_right": [
+      683.1205673758866,
+      562.3905845638606
+    ],
+    "far_short_service_left": [
+      205.39007092198582,
+      628.145161848351
+    ],
+    "far_short_service_center": [
+      586.6666666666667,
+      606.6048692896386
+    ],
+    "far_short_service_right": [
+      823.8297872340427,
+      593.0004739893992
+    ],
+    "net_left": [
+      226.9503546099291,
+      675.760545399189
+    ],
+    "net_right": null,
+    "near_short_service_left": [
+      259.8581560283688,
+      760.7880160256854
+    ],
+    "near_short_service_center": [
+      798.8652482269504,
+      684.8301422660153
+    ],
+    "near_short_service_right": [
+      1066.6666666666667,
+      645.1506559736503
+    ],
+    "near_long_service_left": null,
+    "near_long_service_right": [
+      1547.8014184397164,
+      759.6543164173321
+    ],
+    "near_baseline_left": null,
+    "near_baseline_right": [
+      1704.3971631205675,
+      794.7990042762839
+    ]
+  },
+  "complete": true
+}

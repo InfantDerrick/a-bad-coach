@@ -1,0 +1,33 @@
+{
+  "downloaded_at": "2026-11-01T11:45:37.092005+00:00",
+  "url": "https://www.youtube.com/watch?v=EWbx-O8J_8k",
+  "youtube_id": "EWbx-O8J_8k",
+  "title": "New England Open 2025 - SF - Vikram/Oreo vs Derrick/Kranti",
+  "channel": "Infant Derrick Gnana Susai Raj",
+  "duration_s": 1306,
+  "webpage_url": "https://www.youtube.com/watch?v=EWbx-O8J_8k",
+  "usage_rights": "fair_use_review_needed",
+  "local_video": "data/raw/yt_sonic_9_ewbx-o8j_8k.mp4",
+  "dataset": "data/court_dataset",
+  "source_video": "yt_sonic_9_ewbx-o8j_8k-e12afdeccc",
+  "sample_mode": "random",
+  "frame_count_requested": 12,
+  "frame_indices": [
+    7027,
+    35414,
+    35966,
+    37436,
+    40188,
+    43606,
+    53645,
+    59936,
+    60910,
+    64817,
+    67761,
+    69237
+  ],
+  "notes": [
+    "Frames are for offline court-keypoint annotation.",
+    "Do not claim commercial/pro-trained rights without recorded permission."
+  ]
+}

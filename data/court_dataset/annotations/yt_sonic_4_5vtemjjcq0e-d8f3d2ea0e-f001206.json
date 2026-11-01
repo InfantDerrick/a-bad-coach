@@ -1,0 +1,74 @@
+{
+  "image": "yt_sonic_4_5vtemjjcq0e-d8f3d2ea0e-f001206.jpg",
+  "source_video": "yt_sonic_4_5vtemjjcq0e-d8f3d2ea0e",
+  "source_path": "data/raw/yt_sonic_4_5vtemjjcq0e.mp4",
+  "frame_index": 1206,
+  "timestamp_s": 20.1201,
+  "width": 1280,
+  "height": 720,
+  "youtube_url": "https://www.youtube.com/watch?v=5VtEMJJCq0E",
+  "youtube_id": "5VtEMJJCq0E",
+  "youtube_title": "2024 Sonic Smash (Synergy Badminton Academy) California Men\u2019s Doubles",
+  "usage_rights": "fair_use_review_needed",
+  "annotated": false,
+  "image_width": 1280,
+  "image_height": 720,
+  "points": {
+    "far_baseline_left": [
+      22.96411856474259,
+      361.7451523545706
+    ],
+    "far_baseline_right": [
+      448.29953198127924,
+      341.8005540166205
+    ],
+    "far_long_service_left": [
+      25.9594383775351,
+      370.7202216066482
+    ],
+    "far_long_service_right": [
+      460.2808112324493,
+      348.7811634349031
+    ],
+    "far_short_service_left": [
+      28.954758190327613,
+      419.5844875346261
+    ],
+    "far_short_service_center": [
+      350.4524180967239,
+      392.65927977839334
+    ],
+    "far_short_service_right": [
+      579.0951638065523,
+      376.70360110803324
+    ],
+    "net_left": [
+      32.94851794071763,
+      460.47091412742384
+    ],
+    "net_right": [
+      677.9407176287052,
+      392.65927977839334
+    ],
+    "near_short_service_left": [
+      33.94695787831513,
+      521.3019390581718
+    ],
+    "near_short_service_center": [
+      516.1934477379095,
+      463.46260387811634
+    ],
+    "near_short_service_right": [
+      802.7457098283932,
+      423.57340720221606
+    ],
+    "near_long_service_left": null,
+    "near_long_service_right": [
+      1274.009360374415,
+      532.2714681440443
+    ],
+    "near_baseline_left": null,
+    "near_baseline_right": null
+  },
+  "complete": true
+}

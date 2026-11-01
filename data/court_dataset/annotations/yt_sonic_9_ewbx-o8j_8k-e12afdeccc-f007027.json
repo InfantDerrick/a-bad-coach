@@ -1,0 +1,74 @@
+{
+  "image": "yt_sonic_9_ewbx-o8j_8k-e12afdeccc-f007027.jpg",
+  "source_video": "yt_sonic_9_ewbx-o8j_8k-e12afdeccc",
+  "source_path": "data/raw/yt_sonic_9_ewbx-o8j_8k.mp4",
+  "frame_index": 7027,
+  "timestamp_s": 117.23368,
+  "width": 1280,
+  "height": 720,
+  "youtube_url": "https://www.youtube.com/watch?v=EWbx-O8J_8k",
+  "youtube_id": "EWbx-O8J_8k",
+  "youtube_title": "New England Open 2025 - SF - Vikram/Oreo vs Derrick/Kranti",
+  "usage_rights": "fair_use_review_needed",
+  "annotated": false,
+  "image_width": 1280,
+  "image_height": 720,
+  "points": {
+    "far_baseline_left": [
+      210.67082683307333,
+      279.9722991689751
+    ],
+    "far_baseline_right": null,
+    "far_long_service_left": [
+      215.66302652106086,
+      286.95290858725764
+    ],
+    "far_long_service_right": null,
+    "far_short_service_left": [
+      236.63026521060843,
+      307.89473684210526
+    ],
+    "far_short_service_center": [
+      437.3166926677067,
+      292.93628808864264
+    ],
+    "far_short_service_right": [
+      581.0920436817473,
+      282.9639889196676
+    ],
+    "net_left": [
+      259.59438377535105,
+      327.8393351800554
+    ],
+    "net_right": null,
+    "near_short_service_left": [
+      286.5522620904836,
+      355.7617728531856
+    ],
+    "near_short_service_center": [
+      559.1263650546022,
+      322.8531855955679
+    ],
+    "near_short_service_right": [
+      721.8720748829953,
+      304.90304709141276
+    ],
+    "near_long_service_left": [
+      434.3213728549142,
+      507.34072022160666
+    ],
+    "near_long_service_right": [
+      987.4570982839314,
+      349.77839335180056
+    ],
+    "near_baseline_left": [
+      500.2184087363495,
+      578.1440443213296
+    ],
+    "near_baseline_right": [
+      1067.3322932917317,
+      365.73407202216066
+    ]
+  },
+  "complete": true
+}

@@ -1,0 +1,83 @@
+{
+  "image": "yt_sonic_9_ewbx-o8j_8k-e12afdeccc-f059936.jpg",
+  "source_video": "yt_sonic_9_ewbx-o8j_8k-e12afdeccc",
+  "source_path": "data/raw/yt_sonic_9_ewbx-o8j_8k.mp4",
+  "frame_index": 59936,
+  "timestamp_s": 999.931386,
+  "width": 1280,
+  "height": 720,
+  "youtube_url": "https://www.youtube.com/watch?v=EWbx-O8J_8k",
+  "youtube_id": "EWbx-O8J_8k",
+  "youtube_title": "New England Open 2025 - SF - Vikram/Oreo vs Derrick/Kranti",
+  "usage_rights": "fair_use_review_needed",
+  "annotated": false,
+  "image_width": 1280,
+  "image_height": 720,
+  "points": {
+    "far_baseline_left": [
+      210.67082683307333,
+      279.9722991689751
+    ],
+    "far_baseline_right": [
+      489.2355694227769,
+      267.0083102493075
+    ],
+    "far_long_service_left": [
+      214.66458658346335,
+      285.9556786703601
+    ],
+    "far_long_service_right": [
+      496.22464898595945,
+      269.0027700831025
+    ],
+    "far_short_service_left": [
+      237.62870514820594,
+      307.89473684210526
+    ],
+    "far_short_service_center": [
+      438.3151326053042,
+      293.9335180055402
+    ],
+    "far_short_service_right": [
+      571.1076443057723,
+      281.9667590027701
+    ],
+    "net_left": [
+      259.59438377535105,
+      328.83656509695294
+    ],
+    "net_right": [
+      640.9984399375975,
+      292.93628808864264
+    ],
+    "near_short_service_left": [
+      286.5522620904836,
+      356.7590027700831
+    ],
+    "near_short_service_center": [
+      563.1201248049922,
+      323.85041551246536
+    ],
+    "near_short_service_right": [
+      722.8705148205928,
+      304.90304709141276
+    ],
+    "near_long_service_left": [
+      436.31825273010924,
+      507.34072022160666
+    ],
+    "near_long_service_right": [
+      986.4586583463339,
+      349.77839335180056
+    ],
+    "near_baseline_left": [
+      505.210608424337,
+      579.1412742382272
+    ],
+    "near_baseline_right": [
+      1067.3322932917317,
+      363.73961218836564
+    ]
+  },
+  "complete": true
+}

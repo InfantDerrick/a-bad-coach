@@ -1,0 +1,33 @@
+{
+  "downloaded_at": "2026-11-01T11:39:53.398039+00:00",
+  "url": "https://www.youtube.com/watch?v=CyJXwbufzmE",
+  "youtube_id": "CyJXwbufzmE",
+  "title": "Sonic Smash WA 2026 - WS FINAL - Natalie Chi vs Celine Ao",
+  "channel": "Vannie Boy",
+  "duration_s": 1003,
+  "webpage_url": "https://www.youtube.com/watch?v=CyJXwbufzmE",
+  "usage_rights": "fair_use_review_needed",
+  "local_video": "data/raw/yt_sonic_5_cyjxwbufzme.mp4",
+  "dataset": "data/court_dataset",
+  "source_video": "yt_sonic_5_cyjxwbufzme-604cb3f74e",
+  "sample_mode": "random",
+  "frame_count_requested": 12,
+  "frame_indices": [
+    5522,
+    14156,
+    22439,
+    22771,
+    27734,
+    29370,
+    29822,
+    35912,
+    36434,
+    39488,
+    47899,
+    48484
+  ],
+  "notes": [
+    "Frames are for offline court-keypoint annotation.",
+    "Do not claim commercial/pro-trained rights without recorded permission."
+  ]
+}

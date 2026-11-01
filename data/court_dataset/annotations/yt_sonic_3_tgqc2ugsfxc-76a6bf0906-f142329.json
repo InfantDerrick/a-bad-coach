@@ -1,0 +1,74 @@
+{
+  "image": "yt_sonic_3_tgqc2ugsfxc-76a6bf0906-f142329.jpg",
+  "source_video": "yt_sonic_3_tgqc2ugsfxc-76a6bf0906",
+  "source_path": "data/raw/yt_sonic_3_tgqc2ugsfxc.mp4",
+  "frame_index": 142329,
+  "timestamp_s": 2374.52215,
+  "width": 1280,
+  "height": 720,
+  "youtube_url": "https://www.youtube.com/watch?v=TGqC2UgSfXc",
+  "youtube_id": "TGqC2UgSfXc",
+  "youtube_title": "Sonic Smash WA 2026 - MS FINAL - Sittichai Viboonsin vs Gagan Balyan",
+  "usage_rights": "fair_use_review_needed",
+  "annotated": false,
+  "image_width": 1280,
+  "image_height": 720,
+  "points": {
+    "far_baseline_left": [
+      831.7004680187208,
+      419.5844875346261
+    ],
+    "far_baseline_right": [
+      1150.2028081123244,
+      455.4847645429363
+    ],
+    "far_long_service_left": [
+      819.7191887675507,
+      422.5761772853186
+    ],
+    "far_long_service_right": [
+      1147.207488299532,
+      462.46537396121886
+    ],
+    "far_short_service_left": [
+      718.8767550702029,
+      434.54293628808864
+    ],
+    "far_short_service_center": [
+      879.625585023401,
+      461.4681440443213
+    ],
+    "far_short_service_right": [
+      1134.2277691107645,
+      498.3656509695291
+    ],
+    "net_left": null,
+    "net_right": [
+      1115.257410296412,
+      534.2659279778394
+    ],
+    "near_short_service_left": [
+      551.1388455538222,
+      461.4681440443213
+    ],
+    "near_short_service_center": [
+      732.8549141965678,
+      503.3518005540166
+    ],
+    "near_short_service_right": [
+      1095.288611544462,
+      590.1108033240997
+    ],
+    "near_long_service_left": [
+      209.67238689547582,
+      511.3296398891967
+    ],
+    "near_long_service_right": null,
+    "near_baseline_left": [
+      93.85335413416537,
+      529.2797783933518
+    ],
+    "near_baseline_right": null
+  },
+  "complete": true
+}

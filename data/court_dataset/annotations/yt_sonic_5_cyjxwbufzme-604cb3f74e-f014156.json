@@ -1,0 +1,77 @@
+{
+  "image": "yt_sonic_5_cyjxwbufzme-604cb3f74e-f014156.jpg",
+  "source_video": "yt_sonic_5_cyjxwbufzme-604cb3f74e",
+  "source_path": "data/raw/yt_sonic_5_cyjxwbufzme.mp4",
+  "frame_index": 14156,
+  "timestamp_s": 236.169184,
+  "width": 1280,
+  "height": 720,
+  "youtube_url": "https://www.youtube.com/watch?v=CyJXwbufzmE",
+  "youtube_id": "CyJXwbufzmE",
+  "youtube_title": "Sonic Smash WA 2026 - WS FINAL - Natalie Chi vs Celine Ao",
+  "usage_rights": "fair_use_review_needed",
+  "annotated": false,
+  "image_width": 1280,
+  "image_height": 720,
+  "points": {
+    "far_baseline_left": [
+      811.7316692667707,
+      353.7673130193906
+    ],
+    "far_baseline_right": [
+      1122.2464898595945,
+      376.70360110803324
+    ],
+    "far_long_service_left": [
+      801.7472698907957,
+      355.7617728531856
+    ],
+    "far_long_service_right": [
+      1118.2527301092043,
+      383.6842105263158
+    ],
+    "far_short_service_left": [
+      710.8892355694228,
+      370.7202216066482
+    ],
+    "far_short_service_center": [
+      868.6427457098284,
+      389.66759002770084
+    ],
+    "far_short_service_right": [
+      1110.2652106084245,
+      415.59556786703604
+    ],
+    "net_left": [
+      642.9953198127926,
+      382.6869806094183
+    ],
+    "net_right": [
+      1094.2901716068643,
+      444.51523545706374
+    ],
+    "near_short_service_left": [
+      554.1341653666146,
+      398.6426592797784
+    ],
+    "near_short_service_center": [
+      730.8580343213729,
+      432.5484764542936
+    ],
+    "near_short_service_right": [
+      1079.3135725429017,
+      497.3684210526316
+    ],
+    "near_long_service_left": [
+      224.6489859594384,
+      455.4847645429363
+    ],
+    "near_long_service_right": null,
+    "near_baseline_left": [
+      114.82059282371296,
+      475.42936288088646
+    ],
+    "near_baseline_right": null
+  },
+  "complete": true
+}

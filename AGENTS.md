@@ -8,10 +8,11 @@ Read [docs/court_data_collection.md](docs/court_data_collection.md) for data tar
 
 ## Dataset separation (enforced)
 
-- `data/court_dataset` — training only (`bad_1`, `bad_3`–`bad_11`, synthetic).
+- `data/court_dataset` — training only (`bad_1`, `bad_3`–`bad_18`, `yt_sonic_*`, synthetic). Currently 640 annotated frames / 26 real sources.
 - `data/court_eval_bad2` — held-out eval for `bad_2` (annotated).
 - `data/held_out_sources.json` — forbidden training prefixes (`bad_2`) and a slot for a future final-test video.
 - `scripts/train_court_keypoints.py` refuses held-out source prefixes.
+- YouTube Sonic Smash clips carry `usage_rights: fair_use_review_needed` in `data/raw/youtube_sources/`; do not claim pro-licensed training from them.
 
 Do not merge `bad_2` into training or tune thresholds against it while describing it as untouched. After model selection on `bad_2`, reserve another independent video for final testing.
 
@@ -24,7 +25,8 @@ Only click exact visible intersections. Use null / Not visible when outside the 
 ## Current evidence
 
 - Baseline diagnostics memorized `bad_1` landmarks but failed on unseen `bad_2`.
-- After labeling `bad_3`–`bad_11` and training `court_keypoints_m1_v2.pt`, held-out `bad_2` improved (coverage ~55%, some fits) but is not release-ready.
+- After labeling `bad_3`–`bad_11` and training `court_keypoints_m1_v2.pt` / `m1_v3.pt`, held-out `bad_2` improved (coverage ~55%, some fits) but is not release-ready.
+- `bad_12`–`bad_18` plus 9 Sonic Smash YouTube sources are fully annotated (178 new frames); retrain before re-scoring `bad_2`.
 - Localization still limited by heatmap cell size; trainer defaults are now 384×672 with subpixel peak decode.
 - Primary-court selection, temporal lock (`scripts/infer_court_video.py`), and release-gate summaries live in `src/pipeline/court_tracking.py`.
 

@@ -1,0 +1,65 @@
+{
+  "image": "yt_sonic_2_movkzrjdjga-c98d3f4b22-f037315.jpg",
+  "source_video": "yt_sonic_2_movkzrjdjga-c98d3f4b22",
+  "source_path": "data/raw/yt_sonic_2_movkzrjdjga.mp4",
+  "frame_index": 37315,
+  "timestamp_s": 622.538127,
+  "width": 1280,
+  "height": 720,
+  "youtube_url": "https://www.youtube.com/watch?v=MOvKZRjDjgA",
+  "youtube_id": "MOvKZRjDjgA",
+  "youtube_title": "Sonic Smash EMD con R16",
+  "usage_rights": "fair_use_review_needed",
+  "annotated": false,
+  "image_width": 1280,
+  "image_height": 720,
+  "points": {
+    "far_baseline_left": [
+      599.0639625585023,
+      365.73407202216066
+    ],
+    "far_baseline_right": [
+      881.6224648985959,
+      367.7285318559557
+    ],
+    "far_long_service_left": [
+      589.0795631825273,
+      368.7257617728532
+    ],
+    "far_long_service_right": [
+      881.6224648985959,
+      372.7146814404432
+    ],
+    "far_short_service_left": null,
+    "far_short_service_center": [
+      680.9360374414977,
+      397.6454293628809
+    ],
+    "far_short_service_right": [
+      892.6053042121686,
+      401.6343490304709
+    ],
+    "net_left": null,
+    "net_right": [
+      897.5975039001561,
+      426.5650969529086
+    ],
+    "near_short_service_left": [
+      332.4804992199688,
+      440.5263157894737
+    ],
+    "near_short_service_center": [
+      583.0889235569423,
+      454.4875346260388
+    ],
+    "near_short_service_right": [
+      911.575663026521,
+      470.4432132963989
+    ],
+    "near_long_service_left": null,
+    "near_long_service_right": null,
+    "near_baseline_left": null,
+    "near_baseline_right": null
+  },
+  "complete": true
+}

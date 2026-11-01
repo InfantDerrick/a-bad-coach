@@ -1,0 +1,77 @@
+{
+  "image": "yt_sonic_6_4ukl1n7el9s-5d0498d907-f037154.jpg",
+  "source_video": "yt_sonic_6_4ukl1n7el9s-5d0498d907",
+  "source_path": "data/raw/yt_sonic_6_4ukl1n7el9s.mp4",
+  "frame_index": 37154,
+  "timestamp_s": 619.233333,
+  "width": 1280,
+  "height": 720,
+  "youtube_url": "https://www.youtube.com/watch?v=4Ukl1N7EL9s",
+  "youtube_id": "4Ukl1N7EL9s",
+  "youtube_title": "2026 NE Birdies - Naresh vs Arush",
+  "usage_rights": "fair_use_review_needed",
+  "annotated": false,
+  "image_width": 1280,
+  "image_height": 720,
+  "points": {
+    "far_baseline_left": [
+      504.2121684867395,
+      391.66204986149586
+    ],
+    "far_baseline_right": [
+      737.8471138845554,
+      391.66204986149586
+    ],
+    "far_long_service_left": [
+      500.2184087363495,
+      393.6565096952909
+    ],
+    "far_long_service_right": [
+      744.836193447738,
+      395.6509695290859
+    ],
+    "far_short_service_left": [
+      463.2761310452418,
+      413.601108033241
+    ],
+    "far_short_service_center": [
+      630.015600624025,
+      412.6038781163435
+    ],
+    "far_short_service_right": [
+      789.7659906396256,
+      412.6038781163435
+    ],
+    "net_left": [
+      434.3213728549142,
+      427.5623268698061
+    ],
+    "net_right": [
+      830.7020280811232,
+      428.55955678670364
+    ],
+    "near_short_service_left": [
+      383.4009360374415,
+      452.49307479224376
+    ],
+    "near_short_service_center": [
+      643.99375975039,
+      453.4903047091413
+    ],
+    "near_short_service_right": [
+      893.603744149766,
+      452.49307479224376
+    ],
+    "near_long_service_left": [
+      116.81747269890796,
+      584.1274238227147
+    ],
+    "near_long_service_right": [
+      1209.1107644305773,
+      573.1578947368421
+    ],
+    "near_baseline_left": null,
+    "near_baseline_right": null
+  },
+  "complete": true
+}

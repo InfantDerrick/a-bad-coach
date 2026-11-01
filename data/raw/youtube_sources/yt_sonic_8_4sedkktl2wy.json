@@ -1,0 +1,33 @@
+{
+  "downloaded_at": "2026-11-01T11:43:53.311665+00:00",
+  "url": "https://www.youtube.com/watch?v=4SEdkkTL2wY",
+  "youtube_id": "4SEdkkTL2wY",
+  "title": "2026 Coleman Cup - Derrick/Archana vs Om/Nila",
+  "channel": "Infant Derrick Gnana Susai Raj",
+  "duration_s": 1452,
+  "webpage_url": "https://www.youtube.com/watch?v=4SEdkkTL2wY",
+  "usage_rights": "fair_use_review_needed",
+  "local_video": "data/raw/yt_sonic_8_4sedkktl2wy.mp4",
+  "dataset": "data/court_dataset",
+  "source_video": "yt_sonic_8_4sedkktl2wy-6d5b876dc7",
+  "sample_mode": "random",
+  "frame_count_requested": 12,
+  "frame_indices": [
+    8487,
+    9172,
+    11701,
+    14162,
+    22312,
+    26260,
+    27671,
+    34351,
+    38279,
+    38379,
+    55101,
+    75290
+  ],
+  "notes": [
+    "Frames are for offline court-keypoint annotation.",
+    "Do not claim commercial/pro-trained rights without recorded permission."
+  ]
+}

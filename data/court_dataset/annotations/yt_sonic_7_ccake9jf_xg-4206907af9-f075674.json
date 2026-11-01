@@ -1,0 +1,83 @@
+{
+  "image": "yt_sonic_7_ccake9jf_xg-4206907af9-f075674.jpg",
+  "source_video": "yt_sonic_7_ccake9jf_xg-4206907af9",
+  "source_path": "data/raw/yt_sonic_7_ccake9jf_xg.mp4",
+  "frame_index": 75674,
+  "timestamp_s": 1262.495829,
+  "width": 1280,
+  "height": 720,
+  "youtube_url": "https://www.youtube.com/watch?v=CcakE9jf_xg",
+  "youtube_id": "CcakE9jf_xg",
+  "youtube_title": "2026 Sonic Smash - Derrick/Sourish vs Gagan/Mikey",
+  "usage_rights": "fair_use_review_needed",
+  "annotated": false,
+  "image_width": 1280,
+  "image_height": 720,
+  "points": {
+    "far_baseline_left": [
+      754.820592823713,
+      307.89473684210526
+    ],
+    "far_baseline_right": [
+      1013.4165366614665,
+      320.85872576177286
+    ],
+    "far_long_service_left": [
+      746.8330733229329,
+      308.8919667590028
+    ],
+    "far_long_service_right": [
+      1009.4227769110764,
+      324.8476454293629
+    ],
+    "far_short_service_left": [
+      668.9547581903277,
+      320.85872576177286
+    ],
+    "far_short_service_center": [
+      804.7425897035881,
+      332.8254847645429
+    ],
+    "far_short_service_right": [
+      991.4508580343214,
+      342.797783933518
+    ],
+    "net_left": [
+      609.0483619344774,
+      329.8337950138504
+    ],
+    "net_right": [
+      968.4867394695788,
+      359.75069252077566
+    ],
+    "near_short_service_left": [
+      532.1684867394696,
+      341.8005540166205
+    ],
+    "near_short_service_center": [
+      692.9173166926678,
+      358.7534626038781
+    ],
+    "near_short_service_right": [
+      948.5179407176288,
+      386.67590027700834
+    ],
+    "near_long_service_left": [
+      268.58034321372855,
+      378.69806094182826
+    ],
+    "near_long_service_right": [
+      830.7020280811232,
+      507.34072022160666
+    ],
+    "near_baseline_left": [
+      184.71138845553824,
+      393.6565096952909
+    ],
+    "near_baseline_right": [
+      776.7862714508581,
+      572.1606648199446
+    ]
+  },
+  "complete": true
+}

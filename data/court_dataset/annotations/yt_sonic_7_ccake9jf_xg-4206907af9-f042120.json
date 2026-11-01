@@ -1,0 +1,77 @@
+{
+  "image": "yt_sonic_7_ccake9jf_xg-4206907af9-f042120.jpg",
+  "source_video": "yt_sonic_7_ccake9jf_xg-4206907af9",
+  "source_path": "data/raw/yt_sonic_7_ccake9jf_xg.mp4",
+  "frame_index": 42120,
+  "timestamp_s": 702.702703,
+  "width": 1280,
+  "height": 720,
+  "youtube_url": "https://www.youtube.com/watch?v=CcakE9jf_xg",
+  "youtube_id": "CcakE9jf_xg",
+  "youtube_title": "2026 Sonic Smash - Derrick/Sourish vs Gagan/Mikey",
+  "usage_rights": "fair_use_review_needed",
+  "annotated": false,
+  "image_width": 1280,
+  "image_height": 720,
+  "points": {
+    "far_baseline_left": [
+      753.8221528861154,
+      306.8975069252078
+    ],
+    "far_baseline_right": [
+      1013.4165366614665,
+      319.8614958448754
+    ],
+    "far_long_service_left": [
+      745.8346333853355,
+      308.8919667590028
+    ],
+    "far_long_service_right": [
+      1007.4258970358815,
+      324.8476454293629
+    ],
+    "far_short_service_left": null,
+    "far_short_service_center": [
+      803.7441497659906,
+      330.83102493074796
+    ],
+    "far_short_service_right": [
+      991.4508580343214,
+      345.7894736842105
+    ],
+    "net_left": [
+      606.0530421216849,
+      328.83656509695294
+    ],
+    "net_right": [
+      968.4867394695788,
+      359.75069252077566
+    ],
+    "near_short_service_left": [
+      531.1700468018721,
+      341.8005540166205
+    ],
+    "near_short_service_center": null,
+    "near_short_service_right": [
+      949.5163806552263,
+      386.67590027700834
+    ],
+    "near_long_service_left": [
+      266.58346333853353,
+      377.7008310249308
+    ],
+    "near_long_service_right": [
+      829.7035881435257,
+      507.34072022160666
+    ],
+    "near_baseline_left": [
+      181.7160686427457,
+      392.65927977839334
+    ],
+    "near_baseline_right": [
+      770.7956318252731,
+      571.1634349030471
+    ]
+  },
+  "complete": true
+}

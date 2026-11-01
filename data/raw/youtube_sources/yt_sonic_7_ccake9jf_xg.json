@@ -1,0 +1,33 @@
+{
+  "downloaded_at": "2026-11-01T11:40:53.008508+00:00",
+  "url": "https://www.youtube.com/watch?v=CcakE9jf_xg",
+  "youtube_id": "CcakE9jf_xg",
+  "title": "2026 Sonic Smash - Derrick/Sourish vs Gagan/Mikey",
+  "channel": "Infant Derrick Gnana Susai Raj",
+  "duration_s": 1373,
+  "webpage_url": "https://www.youtube.com/watch?v=CcakE9jf_xg",
+  "usage_rights": "fair_use_review_needed",
+  "local_video": "data/raw/yt_sonic_7_ccake9jf_xg.mp4",
+  "dataset": "data/court_dataset",
+  "source_video": "yt_sonic_7_ccake9jf_xg-4206907af9",
+  "sample_mode": "random",
+  "frame_count_requested": 12,
+  "frame_indices": [
+    16104,
+    20587,
+    38951,
+    40110,
+    42120,
+    44729,
+    46298,
+    58202,
+    58577,
+    65533,
+    67745,
+    75674
+  ],
+  "notes": [
+    "Frames are for offline court-keypoint annotation.",
+    "Do not claim commercial/pro-trained rights without recorded permission."
+  ]
+}

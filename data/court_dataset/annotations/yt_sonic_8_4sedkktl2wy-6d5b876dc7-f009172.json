@@ -1,0 +1,74 @@
+{
+  "image": "yt_sonic_8_4sedkktl2wy-6d5b876dc7-f009172.jpg",
+  "source_video": "yt_sonic_8_4sedkktl2wy-6d5b876dc7",
+  "source_path": "data/raw/yt_sonic_8_4sedkktl2wy.mp4",
+  "frame_index": 9172,
+  "timestamp_s": 153.019489,
+  "width": 1280,
+  "height": 720,
+  "youtube_url": "https://www.youtube.com/watch?v=4SEdkkTL2wY",
+  "youtube_id": "4SEdkkTL2wY",
+  "youtube_title": "2026 Coleman Cup - Derrick/Archana vs Om/Nila",
+  "usage_rights": "fair_use_review_needed",
+  "annotated": false,
+  "image_width": 1280,
+  "image_height": 720,
+  "points": {
+    "far_baseline_left": [
+      223.65054602184088,
+      427.5623268698061
+    ],
+    "far_baseline_right": [
+      517.191887675507,
+      406.6204986149585
+    ],
+    "far_long_service_left": [
+      225.6474258970359,
+      433.54570637119116
+    ],
+    "far_long_service_right": null,
+    "far_short_service_left": [
+      230.6396255850234,
+      458.4764542936288
+    ],
+    "far_short_service_center": [
+      456.2870514820593,
+      434.54293628808864
+    ],
+    "far_short_service_right": [
+      609.0483619344774,
+      422.5761772853186
+    ],
+    "net_left": [
+      236.63026521060843,
+      482.409972299169
+    ],
+    "net_right": [
+      678.9391575663027,
+      432.5484764542936
+    ],
+    "near_short_service_left": [
+      247.61310452418098,
+      523.2963988919668
+    ],
+    "near_short_service_center": [
+      583.0889235569423,
+      474.4321329639889
+    ],
+    "near_short_service_right": [
+      771.7940717628705,
+      445.5124653739612
+    ],
+    "near_long_service_left": null,
+    "near_long_service_right": [
+      1128.2371294851794,
+      499.3628808864266
+    ],
+    "near_baseline_left": null,
+    "near_baseline_right": [
+      1257.0358814352574,
+      521.3019390581718
+    ]
+  },
+  "complete": true
+}

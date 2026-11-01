@@ -1,0 +1,33 @@
+{
+  "downloaded_at": "2026-11-01T11:35:16.308460+00:00",
+  "url": "https://www.youtube.com/watch?v=5VtEMJJCq0E",
+  "youtube_id": "5VtEMJJCq0E",
+  "title": "2024 Sonic Smash (Synergy Badminton Academy) California Men\u2019s Doubles",
+  "channel": "junior baptista",
+  "duration_s": 35,
+  "webpage_url": "https://www.youtube.com/watch?v=5VtEMJJCq0E",
+  "usage_rights": "fair_use_review_needed",
+  "local_video": "data/raw/yt_sonic_4_5vtemjjcq0e.mp4",
+  "dataset": "data/court_dataset",
+  "source_video": "yt_sonic_4_5vtemjjcq0e-d8f3d2ea0e",
+  "sample_mode": "random",
+  "frame_count_requested": 12,
+  "frame_indices": [
+    544,
+    554,
+    1091,
+    1092,
+    1119,
+    1140,
+    1206,
+    1214,
+    1312,
+    1368,
+    1765,
+    1812
+  ],
+  "notes": [
+    "Frames are for offline court-keypoint annotation.",
+    "Do not claim commercial/pro-trained rights without recorded permission."
+  ]
+}

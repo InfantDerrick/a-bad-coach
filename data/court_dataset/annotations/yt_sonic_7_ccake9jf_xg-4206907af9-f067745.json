@@ -1,0 +1,83 @@
+{
+  "image": "yt_sonic_7_ccake9jf_xg-4206907af9-f067745.jpg",
+  "source_video": "yt_sonic_7_ccake9jf_xg-4206907af9",
+  "source_path": "data/raw/yt_sonic_7_ccake9jf_xg.mp4",
+  "frame_index": 67745,
+  "timestamp_s": 1130.213547,
+  "width": 1280,
+  "height": 720,
+  "youtube_url": "https://www.youtube.com/watch?v=CcakE9jf_xg",
+  "youtube_id": "CcakE9jf_xg",
+  "youtube_title": "2026 Sonic Smash - Derrick/Sourish vs Gagan/Mikey",
+  "usage_rights": "fair_use_review_needed",
+  "annotated": true,
+  "image_width": 1280,
+  "image_height": 720,
+  "points": {
+    "far_baseline_left": [
+      750.826833073323,
+      307.89473684210526
+    ],
+    "far_baseline_right": [
+      1013.4165366614665,
+      319.8614958448754
+    ],
+    "far_long_service_left": [
+      742.8393135725429,
+      308.8919667590028
+    ],
+    "far_long_service_right": [
+      1012.418096723869,
+      325.8448753462604
+    ],
+    "far_short_service_left": [
+      665.9594383775351,
+      321.85595567867034
+    ],
+    "far_short_service_center": [
+      803.7441497659906,
+      330.83102493074796
+    ],
+    "far_short_service_right": [
+      989.4539781591265,
+      345.7894736842105
+    ],
+    "net_left": [
+      609.0483619344774,
+      329.8337950138504
+    ],
+    "net_right": [
+      969.4851794071764,
+      360.74792243767314
+    ],
+    "near_short_service_left": [
+      532.1684867394696,
+      341.8005540166205
+    ],
+    "near_short_service_center": [
+      694.9141965678627,
+      359.75069252077566
+    ],
+    "near_short_service_right": [
+      950.5148205928238,
+      385.6786703601108
+    ],
+    "near_long_service_left": [
+      267.5819032761311,
+      378.69806094182826
+    ],
+    "near_long_service_right": [
+      826.7082683307333,
+      514.3213296398892
+    ],
+    "near_baseline_left": [
+      182.71450858034322,
+      393.6565096952909
+    ],
+    "near_baseline_right": [
+      775.7878315132606,
+      571.1634349030471
+    ]
+  },
+  "complete": true
+}

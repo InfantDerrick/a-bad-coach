@@ -1,0 +1,33 @@
+{
+  "downloaded_at": "2026-11-01T11:34:01.938115+00:00",
+  "url": "https://www.youtube.com/watch?v=MOvKZRjDjgA",
+  "youtube_id": "MOvKZRjDjgA",
+  "title": "Sonic Smash EMD con R16",
+  "channel": "kyle gao",
+  "duration_s": 910,
+  "webpage_url": "https://www.youtube.com/watch?v=MOvKZRjDjgA",
+  "usage_rights": "fair_use_review_needed",
+  "local_video": "data/raw/yt_sonic_2_movkzrjdjga.mp4",
+  "dataset": "data/court_dataset",
+  "source_video": "yt_sonic_2_movkzrjdjga-c98d3f4b22",
+  "sample_mode": "random",
+  "frame_count_requested": 12,
+  "frame_indices": [
+    4786,
+    13444,
+    16564,
+    21871,
+    26537,
+    28830,
+    34708,
+    34755,
+    37315,
+    43994,
+    44552,
+    48709
+  ],
+  "notes": [
+    "Frames are for offline court-keypoint annotation.",
+    "Do not claim commercial/pro-trained rights without recorded permission."
+  ]
+}
